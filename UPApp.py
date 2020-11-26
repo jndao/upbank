@@ -1,6 +1,6 @@
 # main file that starts and initiates the retrieval of 
 # user data and the main command loop
-import startup
+import dataHelper as startup
 import accountHelper as acc
 
 commands = {

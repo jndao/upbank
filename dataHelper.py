@@ -20,6 +20,11 @@ userData = {
     "token" : None
 }
 
+# updates userData.json with data
+def updateUserData():
+    with open('userData.json', 'w+') as data:
+        json.dump(userData, data)
+
 # Token is string
 # pings response to check token
 def checkToken(token):
@@ -51,7 +56,7 @@ def addNewToken(token):
     try:
         checkToken(str(token))
         userData["token"] = str(token)
-        updataUserData()
+        updateUserData()
         return True
     except ValueError:
         print ("Token incorrect. Please input valid token or visit https://developer.up.com.au/ to get a new token")
@@ -65,8 +70,21 @@ def getUserAccounts():
     accountData = requests.get(userData['accountsUrl'], headers=header, params=payload).json()
     return accountData
     
-# updates userData.json with data
-def updateUserData():
-    with open('userData.json', 'w+') as data:
-        json.dump(userData, data)
-        
+def getNextData(nextURL):
+    header = {'Authorization' : 'Bearer ' + userData["token"]}
+    payload = {'page[size]' : '1'}
+    nextData = requests.get(nextURL, headers=header, params=payload).json()
+    return nextData
+
+# given a json formatted data, will print out the details
+# name
+# account type
+# balance (in AUD0)
+def printAccountData(account):
+    name = account['displayName']
+    type = account['accountType']
+    balance = account['balance']['value']
+
+    print ('\n', name, type)
+    print ("Account balance = %s" % balance)
+
