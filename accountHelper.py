@@ -24,4 +24,4 @@ def getAll(accountData):
         if not accountData['links']['next']:
             break
         else:
-            accountData = dHelper.getNextData(accountData['links']['next'])
+            accountData = dHelper.getNextData( accountData['links']['next'])
