@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# UPBANK App
+This project is planned to be hosted at my [website](http://johndao.dev).  
+Originally started mid last year after the release of my favourite bank's new feature, their [api](https://developer.up.com.au/). After developing my front-end skills I've decided to transform the app from a python commandline app, to a react app integrated into my website.  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
+<ol>
+    <li> <a href="#Why-I-made-this">Why I made this</a> </li>
+    <li> <a href="#Available-Scripts">Avaliable Scripts</a> 
+    <li> <a href="#Learn-More">Learn More</a> 
+</ol>  
+
+## Why I made this
+
+After the release of Upbank's API, I have aways imagined myself creating an app where I could check and interact with my finances through my own computer and through something I created by my own.  
+In combination with this, UP bank (as of 6/04/2021) has NO website and is a phone app only banking app.  
+So witht these reasons, I decided to invest some of my time into creating an app of my own that I can control!  
 
 ## Available Scripts
 
