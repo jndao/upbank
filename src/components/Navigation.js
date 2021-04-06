@@ -32,6 +32,7 @@ export function AppRouter() {
                 <InfoNav/>
               </Navbar>
               <h1>This is the about page</h1>
+              <NavFooter/>
             </UpTheme>
           </Route>
 
@@ -42,7 +43,7 @@ export function AppRouter() {
               </Navbar>
             
               <AccountData/>
-
+              <NavFooter/>
             </UpTheme>
           </Route>
 
@@ -66,7 +67,10 @@ export function AppRouter() {
 function NavFooter() {
   return (
     <Navbar bg="dark" variant="dark" fixed="bottom">
-
+      <NavbarCollapse className='justify-content-end'>
+        <Button className='btn' variant='link'href='mailto:work@johndao.dev?subject=I%20found%20a%20bug%20in%20your%20Up%20Bank%20App.'>Found a bug?</Button>
+        <Button className='btn' variant='link'href='https://johndao.dev'>About me</Button>
+      </NavbarCollapse>
     </Navbar>
   );
 }
