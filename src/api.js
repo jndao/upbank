@@ -24,7 +24,6 @@ export default class API {
     async getJSON(path, options) {
         this.loading = true;
         const response = await fetch(path, options);
-
         this.status = response.status;
         this.data = await response.json();
         this.loading = false;
@@ -41,8 +40,13 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-        await this.getJSON(`${this.url}/util/ping`, data);
-        return {'status': this.status, 'data': this.data};
+
+        try {
+            await this.getJSON(`${this.url}/util/ping`, data);
+            return {'status': this.status, 'data': this.data};
+        } catch(e) {
+            console.error(e);
+        }
     }
     /**
      * Gets all bank account data
@@ -56,8 +60,13 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-        await this.getJSON(`${this.url}/util/ping`, data);
-        return getJSON(`${this.url}/accounts`, data);
+
+        try {
+            await this.getJSON(`${this.url}/util/ping`, data);
+            return getJSON(`${this.url}/accounts`, data);
+        } catch(e) {
+            console.error(e);
+        }
     }
     /**
      * Given an id, will return a promise 
@@ -72,7 +81,12 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-        await this.getJSON(`${this.url}/util/ping`, data);
-        return getJSON(`${this.url}/accounts/${id}`, data);
+        
+        try {
+            await this.getJSON(`${this.url}/util/ping`, data);
+            return getJSON(`${this.url}/accounts/${id}`, data);
+        } catch(e) {
+            console.error(e);
+        }
     }
 }

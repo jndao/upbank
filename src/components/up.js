@@ -35,7 +35,6 @@ export function LoginForm() {
     e.preventDefault();
     localStorage.setItem('token', document.getElementById('formBasicPassword').value);
     const response = await new API().pingToken();
-    console.log(response);
     if (response.status !== 200) {
         console.log(response.data.errors[0].detail)
         setTitle("Error " + response.data.errors[0].status);
