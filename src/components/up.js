@@ -80,7 +80,7 @@ export function LoginForm(props) {
             <Form.Label>Up Api Token</Form.Label>
             <Form.Control type="password" placeholder="Paste token here"/>
             <Form.Text className="text-muted">
-              Token is not shared. All sensitive data is stored to your local machine.
+              Token is not shared. All sensitive data is stored to your local device.
             </Form.Text>
           </Form.Group>
           <Button className="btn btn-primary" type="submit" >
@@ -149,13 +149,13 @@ const Account = (props) => {
       // creating and showing new modal
       const response = await new API().retrieveTransactions(account.id);
       if (response.status === 200) {
+        showModal(true);
         setTitle(displayName + "'s Recent Transactions");
         setContent(transactionList(response.data.data));
-        showModal(true);
       } else {
+        showModal(true)
         setTitle('Error ' + response.status);
         setContent(response.title);
-        showModal(true)
       }
       
     }
@@ -207,9 +207,22 @@ export function AccountData() {
                   ]);
     }
   }
-
   // initial load
   React.useEffect(() => {
+    const getAccounts = async() => {
+      setAccounts([]);
+      const response = await new API().getAccounts();
+      if (response.status === 200) {
+        const accounts = response.data.data;
+        updateList(accounts);
+      } else {
+        console.log(response);
+        setAccounts([{'status': response.status,
+                      'title': response.data.errors[0].title,
+                      'detail': response.data.errors[0].detail}
+                    ]);
+      }
+    }
     getAccounts();
   }, [])
 

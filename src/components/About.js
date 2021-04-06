@@ -5,8 +5,6 @@
 import loveGif from '../assets/love.gif'
 
 import {AboutDiv} from '../styles/UpStyle';
-import FadeIn from 'react-fade-in';
-
 
 export function AboutContent() {
     return (
