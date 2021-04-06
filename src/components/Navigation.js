@@ -10,8 +10,8 @@ import { Redirect } from 'react-router';
 // bootstrap styles
 import { Button, Navbar } from 'react-bootstrap';
 
-// landing page/login form
-import {LoginForm} from './Up.js';
+// Up components
+import {LoginForm, AccountData} from './Up.js';
 
 // The general theme of the app
 import {UpTheme} from '../style/UpStyle.js';
@@ -37,8 +37,9 @@ export function AppRouter() {
                 <Header/><LogOut/>
               </Navbar>
             
-            <h1>This is the accounts page</h1></UpTheme>
+              <AccountData/>
 
+            </UpTheme>
           </Route>
 
           <Route path="/">
@@ -46,8 +47,7 @@ export function AppRouter() {
               <Navbar bg="dark" variant="dark">
                 <Header/>
               </Navbar>
-
-              <LoginForm/>
+              <LoginForm logged={localStorage.getItem('token') !== undefined && true}/>
             </UpTheme>
           </Route>
 
@@ -80,7 +80,7 @@ function Header() {
  * @returns JSX Element
  */
 function LogOut() {
-  const [logOut, setLogOut] = useState(false);
+  const [logOut, setLogOut] = useState(localStorage.getItem('token') === null);
 
   const handleLogOut = (e) => {
     e.preventDefault();

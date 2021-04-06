@@ -2,25 +2,34 @@
  * Where all major up components are
  */
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
+
 // bootstrap imports
 import { Button, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// API import
 import API from '../Api.js';
+
+// modal import
 import {NewModal} from './Modal.js';
-import {UpLogin} from '../style/UpStyle.js';
-import { Redirect } from 'react-router';
+
+// corresponding style file
+import {UpLogin, AcContainer} from '../style/UpStyle.js';
 
 
 /**
  * Is the Login form. Will show modal error if not working properly
  * @returns React Component
  */
-export function LoginForm() {
+export function LoginForm(props) {
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState('No Title');
   const [content, setContent] = useState('No Content');
-  const [redirect, setRedirect] = useState(false);
+  const [redirect, setRedirect] = useState(localStorage.getItem('token') !== null);
+  
+  
+
   /**
    * Given an event, will handle fetching account data.
    * If successfull, will direct to showing all accounts
@@ -84,6 +93,11 @@ export function LoginForm() {
   );
 }
 
-function AccountData() {
-  console.log('test');
+export function AccountData() {
+  return (
+    <AcContainer>
+      <h1>Welcome!</h1>
+      <h5>Here are your accounts!</h5>
+    </AcContainer>
+  );
 }

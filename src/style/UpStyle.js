@@ -17,3 +17,8 @@ export const UpLogin = styled.div `
     padding: 15% 0;
     text-align: left;
 `;
+
+export const AcContainer = styled.div `
+    margin: auto;
+    width: 60%;
+`
