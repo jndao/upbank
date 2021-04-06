@@ -16,7 +16,7 @@ In combination with this, UP bank (as of 6/04/2021) has NO website and is a phon
 So witht these reasons, I decided to invest some of my time into creating an app of my own that I can control!  
 
 ## How to use  
-To run this app on your local machine, use `npm start` (refer to [npm start](#`npm-start`))  
+To run this app on your local machine, use `npm start` (refer to [avaliable scripts](#Available-Scripts))  
 Otherwise, this app is being deployed on my website and you would be able to access it there!  
 
 ## Available Scripts
