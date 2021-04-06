@@ -99,7 +99,6 @@ export function AccountData() {
   const [accountList, setAccounts] = useState([]);
 
   const updateList = (newAccounts) => {
-    console.log(newAccounts);
     const newState = newAccounts.map(obj => {return obj});
     setAccounts(newState)
   };
@@ -111,7 +110,6 @@ export function AccountData() {
       const accounts = response.data.data;
       updateList(accounts);
     } else {
-      console.log(response.data);
       setAccounts([{'Status': response.status,
                     "title": response.data.errors[0].title}
                   ]);
@@ -127,16 +125,22 @@ export function AccountData() {
       );
     } else {
       console.log(account);
+      const attributes = account.attributes;
+      const displayName = attributes.displayName,
+            accountType = attributes.accountType,
+            balance = attributes.balance.value,
+            createdAt = attributes.createdAt.substring(0, attributes.createdAt.indexOf('T'));
+      console.log(displayName);
+
       return (
         <AccountCard>
-          <Card className='mr-2'>
-            <Card.Header>Featured</Card.Header>
+          <Card>
+            <Card.Header>Type: {accountType}</Card.Header>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+              <Card.Title>{displayName}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Created on: {createdAt}</Card.Subtitle>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Balance: {balance}
               </Card.Text>
               <Card.Link className="btn btn-light" href="#">Card Link</Card.Link>
               <Card.Link className="btn btn-light" href="#">Another Link</Card.Link>
@@ -150,20 +154,21 @@ export function AccountData() {
   // initial load
   React.useEffect(() => {
     getAccounts();
-  }, 1000)
+  }, 1)
 
   return (
-    <AccountContainer onLoad={getAccounts}>
+    <>
       <h1 style={{paddingTop: "5%"}}>Welcome!</h1>
       <h10 style={{padding: "2%"}}>You're Logged In!</h10>
       <div>
-        <Button onClick={getAccounts}>Update Accounts</Button>
+        <Button onClick={getAccounts}>Refresh Accounts</Button>
       </div>
-      <FadeIn>
-        {accountList.map((account, index) => {
-          return <Account key={index} data={account} />
-        })}
-      </FadeIn>
-    </AccountContainer>
+      <AccountContainer>
+
+          {accountList.map((account, index) => {
+            return <FadeIn><Account key={index} data={account} /></FadeIn>
+          })}
+      </AccountContainer>
+    </>
   );
 }
