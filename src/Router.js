@@ -1,12 +1,14 @@
-// react router
+// import react router
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 
+// landing page/login form
 import {LoginForm, Header} from './components/Up.js';
+
+// The general theme of the app
 import {UpTheme} from './style/UpStyle.js';
 
 /**

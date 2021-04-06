@@ -10,8 +10,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
  * @param {props} props
  * REQUIRES title and content 
  */
-
-
 export function NewModal(props) {
   const [show, setShow] = useState(props.show);
   const title = props.title;

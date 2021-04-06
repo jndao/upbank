@@ -8,7 +8,7 @@ import { Button, Form, Navbar } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import API from '../Api.js';
 import {NewModal} from './Modal.js';
-import {UpTheme, UpLogin} from '../style/UpStyle.js';
+import {UpLogin} from '../style/UpStyle.js';
 
 export function Header() {
   return (
@@ -79,19 +79,19 @@ export function LoginForm() {
         &&
         <NewModal show={show} title={title} content={content} />
       }</div>
-      
+
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicPassword" >
           <Form.Label>Up Api Token</Form.Label>
           <Form.Control type="password" placeholder="Paste token here"/>
           <Form.Text className="text-muted">
-            Token is not shared. All data is stored to your local machine.
+            Token is not shared. All sensitive data is stored to your local machine.
           </Form.Text>
         </Form.Group>
         <Button classname="btn btn-primary" type="submit" >
           Log In
         </Button>
-        <a className="btn btn-link text-left text-muted" href="https://api.up.com.au/getting_started" target="_blank">
+        <a className="btn btn-link text-left text-muted" href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">
           Don't have a token?
         </a>
 

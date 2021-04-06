@@ -50,7 +50,7 @@ export default class API {
      * @param {string} id account id
      * @returns promise
      */
-    retrieveAccount(id) {
+    getIdAccount(id) {
         const data = {
             'method': 'GET',
             'headers': {

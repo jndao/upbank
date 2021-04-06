@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
 
-// components
+// the only component required, the navigation!
 import {Navigation} from './Router.js'
+
 function App() {
 
   return (
