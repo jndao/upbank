@@ -2,14 +2,14 @@
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
 } from "react-router-dom";
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 
 // bootstrap styles
 import { Button, Navbar } from 'react-bootstrap';
-
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 // Up components
 import {LoginForm, AccountData} from './Up.js';
 
@@ -28,13 +28,18 @@ export function AppRouter() {
         <Switch>
 
           <Route path="/about">
-            <h1>This is the about page</h1>
+            <Navbar bg="dark" variant="dark">
+              <InfoNav/>
+            </Navbar>
+            <UpTheme>
+              <h1>This is the about page</h1>
+            </UpTheme>
           </Route>
 
           <Route path ="/accounts">
             <UpTheme>
               <Navbar bg="dark" variant="dark">
-                <Header/><LogOut/>
+                <UserNav/>
               </Navbar>
             
               <AccountData/>
@@ -45,7 +50,7 @@ export function AppRouter() {
           <Route path="/">
             <UpTheme>
               <Navbar bg="dark" variant="dark">
-                <Header/>
+                <InfoNav/>
               </Navbar>
               <LoginForm logged={localStorage.getItem('token') !== undefined && true}/>
             </UpTheme>
@@ -56,7 +61,31 @@ export function AppRouter() {
     </>
   );
 }
-  
+
+// when you're not logged in
+function InfoNav() {
+  return (
+    <>
+      <Header/>
+      <NavbarCollapse className='justify-content-end'>
+        <Home/> <About/>
+      </NavbarCollapse>
+    </>
+  );
+}
+
+// when you're logged in
+function UserNav() {
+  return (
+    <>
+      <Header/>
+      <NavbarCollapse className='justify-content-end'>
+        <Home/> <About/> <LogOut/>
+      </NavbarCollapse>
+    </>
+  );
+}
+
 // header for landing
 function Header() {
   return (
@@ -96,11 +125,20 @@ function LogOut() {
         &&
         <Redirect to="/"/>
       }</div>
-
-      <NavbarCollapse className='justify-content-end'>
-        <Button className='btn btn-secondary' onClick={handleLogOut}>Log out</Button>
-      </NavbarCollapse>
+      <Button className='mr-2 btn btn-secondary' onClick={handleLogOut}>Log Out</Button>
     </>
     
+  );
+}
+
+function About() {
+  return (
+    <Button className='mr-2 btn btn-primary' href='/about'>About</Button>
+  );
+}
+
+function Home() {
+  return (
+    <Button className='mr-2 btn btn-primary' href='/'>Home</Button>
   );
 }

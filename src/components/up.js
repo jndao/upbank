@@ -97,7 +97,7 @@ export function AccountData() {
   return (
     <AcContainer>
       <h1>Welcome!</h1>
-      <h5>Here are your accounts!</h5>
+      <h5>You are logged in!</h5>
     </AcContainer>
   );
 }
