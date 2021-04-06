@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 
 // bootstrap imports
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Fade } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // API import
@@ -16,6 +16,7 @@ import {NewModal} from './Modal.js';
 
 // corresponding style file
 import {UpLogin, AcContainer} from '../style/UpStyle.js';
+import FadeIn from 'react-fade-in';
 
 
 /**
@@ -92,12 +93,40 @@ export function LoginForm(props) {
     </UpLogin>
   );
 }
+ 
 
 export function AccountData() {
+  const [accountList, setAccounts] = useState([]);
+
+  const getAccounts = async() => {
+    const response = await new API().getAccounts();
+    if (response.status === 200) {
+      setAccounts(response.data);
+    } else {
+      setAccounts(['lol', 'leeew']);
+    }
+  }
+
+  const Account = (props) => {
+    const account = props.data;
+      
+    return (
+      <div>{account}</div>
+    );
+  }
+
   return (
     <AcContainer>
       <h1>Welcome! Your accounts are below.</h1>
       <h5>You are logged in!</h5>
+      <div>
+        <Button onClick={getAccounts}>Show/Update Accounts</Button>
+      </div>
+      <FadeIn>
+        {accountList.map((account, index) => {
+          return <Account key={index} data={account} />
+        })}
+      </FadeIn>
     </AcContainer>
   );
 }

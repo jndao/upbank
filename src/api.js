@@ -62,8 +62,8 @@ export default class API {
         }
 
         try {
-            await this.getJSON(`${this.url}/util/ping`, data);
-            return getJSON(`${this.url}/accounts`, data);
+            await this.getJSON(`${this.url}/accounts`, data);
+            return {'status': this.status, 'data': this.data};
         } catch(e) {
             console.error(e);
         }
@@ -83,8 +83,8 @@ export default class API {
         }
         
         try {
-            await this.getJSON(`${this.url}/util/ping`, data);
-            return getJSON(`${this.url}/accounts/${id}`, data);
+            await this.getJSON(`${this.url}/accounts/${id}`, data);
+            return {'status': this.status, 'data': this.data};
         } catch(e) {
             console.error(e);
         }
