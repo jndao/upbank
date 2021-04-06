@@ -139,7 +139,7 @@ const Account = (props) => {
           currencyCode = attributes.balance.currencyCode,
           createdAt = attributes.createdAt.substring(0, attributes.createdAt.indexOf('T'));
       const handleShowTransaction = async() => {
-      // reset modal if already open
+      // showing modal before to avoid deplay between click and opening modal
       showModal(true);
       setTitle('Loading');
       setContent('Loading');
@@ -147,11 +147,11 @@ const Account = (props) => {
       // creating and showing new modal
       const response = await new API().retrieveTransactions(account.id);
       if (response.status === 200) {
-        showModal(true);
+        // setting content for successful retrieval
         setTitle(displayName + "'s Recent Transactions");
         setContent(transactionList(response.data.data));
       } else {
-        showModal(true)
+        // setting content for unsuccessful retrieval
         setTitle('Error ' + response.status);
         setContent(response.title);
       }
