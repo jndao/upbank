@@ -1,11 +1,4 @@
-/**
- * Given a path and options, will fetch api response
- * @param {string} path Path to execute fetch for
- * @param {JSON} options Options for the request via path
- * @returns json response
- */
-async function getJSON(path, options) {
-}   
+import { backOff } from "exponential-backoff";
     
 /**
  * Default API object class for upbank API
@@ -20,13 +13,24 @@ export default class API {
         this.data = 'undefined';
         this.loading = false;
     }
-
+    
+    /**
+     * Given a path and options, will fetch api response
+     * @param {string} path Path to execute fetch for
+     * @param {JSON} options Options for the request via path
+     * @returns json response
+     */ 
     async getJSON(path, options) {
         this.loading = true;
-        const response = await fetch(path, options);
-        this.status = response.status;
-        this.data = await response.json();
-        this.loading = false;
+        try {
+            const response = await backOff(() => fetch(path, options));
+            this.status = response.status;
+            this.data = await response.json();
+            this.loading = false;
+        } catch (e) {
+            console.error(e);
+        }
+
     }
 
     /**
@@ -40,13 +44,8 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-
-        try {
-            await this.getJSON(`${this.url}/util/ping`, data);
-            return {'status': this.status, 'data': this.data};
-        } catch(e) {
-            console.error(e);
-        }
+        await this.getJSON(`${this.url}/util/ping`, data);
+        return {'status': this.status, 'data': this.data};
     }
     /**
      * Gets all bank account data
@@ -60,13 +59,8 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-
-        try {
-            await this.getJSON(`${this.url}/accounts`, data);
-            return {'status': this.status, 'data': this.data};
-        } catch(e) {
-            console.error(e);
-        }
+        await this.getJSON(`${this.url}/accounts`, data);
+        return {'status': this.status, 'data': this.data};
     }
     /**
      * Given an id, will return a promise 
@@ -81,12 +75,7 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-        
-        try {
-            await this.getJSON(`${this.url}/accounts/${id}`, data);
-            return {'status': this.status, 'data': this.data};
-        } catch(e) {
-            console.error(e);
-        }
+        await this.getJSON(`${this.url}/accounts/${id}`, data);
+        return {'status': this.status, 'data': this.data};
     }
 }

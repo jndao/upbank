@@ -43,7 +43,6 @@ export function LoginForm(props) {
     setContent('No Content');
 
     e.preventDefault();
-    localStorage.setItem('token', document.getElementById('formBasicPassword').value);
     const response = await new API().pingToken();
     if (response.status !== 200) {
         console.log(response.data.errors[0].detail)
@@ -51,9 +50,10 @@ export function LoginForm(props) {
         setContent(response.data.errors[0].title);
         setShow(true);
     } else {
-        console.log(JSON.stringify(response.data));
-        setRedirect(true);
-    
+      // set token ONLY if successful
+      localStorage.setItem('token', document.getElementById('formBasicPassword').value);
+      console.log(JSON.stringify(response.data));
+      setRedirect(true);
     }
   }
 
