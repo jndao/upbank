@@ -103,13 +103,14 @@ export function AccountData() {
     if (response.status === 200) {
       setAccounts(response.data);
     } else {
-      setAccounts(['lol', 'leeew']);
+      console.log(response.data);
+      setAccounts(['Error ' + response.status + " " + response.data.errors[0].title]);
     }
   }
 
   const Account = (props) => {
     const account = props.data;
-      
+
     return (
       <div>{account}</div>
     );
