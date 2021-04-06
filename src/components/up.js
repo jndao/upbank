@@ -140,9 +140,9 @@ const Account = (props) => {
           createdAt = attributes.createdAt.substring(0, attributes.createdAt.indexOf('T'));
       const handleShowTransaction = async() => {
       // reset modal if already open
-      showModal(false);
-      setTitle('No Title');
-      setContent('No Content');
+      showModal(true);
+      setTitle('Loading');
+      setContent('Loading');
 
       // creating and showing new modal
       const response = await new API().retrieveTransactions(account.id);
