@@ -16,8 +16,8 @@ export function Header() {
         <Navbar.Brand href="/">
           <img
             src="/logo.gif"
-            width="50"
-            height="50"
+            width="40"
+            height="40"
             className="d-inline-block align-top"
             alt="Upbank Logo"
           />
@@ -79,13 +79,13 @@ export function LoginForm() {
         &&
         <NewModal show={show} title={title} content={content} />
       }</div>
+      
       <Form onSubmit={handleSubmit}>
-
         <Form.Group controlId="formBasicPassword" >
           <Form.Label>Up Api Token</Form.Label>
           <Form.Control type="password" placeholder="Paste token here"/>
           <Form.Text className="text-muted">
-            Not made in association with UpBank. I just really like their app.
+            Token is not shared. All data is stored to your local machine.
           </Form.Text>
         </Form.Group>
         <Button classname="btn btn-primary" type="submit" >

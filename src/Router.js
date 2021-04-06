@@ -17,17 +17,17 @@ export function Navigation() {
     return (
     <>
         <Router>
-        <Switch>
-            <Route path="/about">
-                <h1>This is the about page</h1>
-            </Route>
-            <Route path="/">
-                <UpTheme>
-                    <Header />
-                    <LoginForm/>
-                </UpTheme>
-            </Route>
-        </Switch>
+            <Switch>
+                <Route path="/about">
+                    <h1>This is the about page</h1>
+                </Route>
+                <Route path="/">
+                    <UpTheme>
+                        <Header />
+                        <LoginForm/>
+                    </UpTheme>
+                </Route>
+            </Switch>
         </Router>
     </>
     );
