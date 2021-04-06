@@ -21,4 +21,8 @@ export const UpLogin = styled.div `
 export const AcContainer = styled.div `
     margin: auto;
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `

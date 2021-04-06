@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 
 // bootstrap imports
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Card } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // API import
@@ -98,22 +98,53 @@ export function LoginForm(props) {
 export function AccountData() {
   const [accountList, setAccounts] = useState([]);
 
+  const updateList = (newAccounts) => {
+    console.log(newAccounts);
+    const newState = newAccounts.map(obj => {return obj});
+    setAccounts(newState)
+  };
+
   const getAccounts = async() => {
     const response = await new API().getAccounts();
     if (response.status === 200) {
-      setAccounts(response.data);
+      const accounts = response.data.data;
+      updateList(accounts);
     } else {
       console.log(response.data);
-      setAccounts(['Error ' + response.status + " " + response.data.errors[0].title]);
+      setAccounts([{'Status': response.status,
+                    "title": response.data.errors[0].title}
+                  ]);
     }
   }
 
   const Account = (props) => {
     const account = props.data;
+    
+    if (typeof account !== 'object') {
+      return (
+        <div>Error {account.status} {account.title}</div>
+      );
+    } else {
+      console.log(account);
+      return (
+        <div>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+              <Card.Link href="#">Card Link</Card.Link>
+              <Card.Link href="#">Another Link</Card.Link>
+            </Card.Body>
+          </Card>
+        </div>
+      );
+    }
 
-    return (
-      <div>{account}</div>
-    );
+    
   }
 
   return (
