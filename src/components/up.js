@@ -26,7 +26,7 @@ export function LoginForm() {
    * If successfull, will direct to showing all accounts
    * @param {event} e submit event
    */
-  let handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     //reset setShow
     setShow(false);
     setTitle('No Title');
@@ -34,24 +34,18 @@ export function LoginForm() {
 
     e.preventDefault();
     localStorage.setItem('token', document.getElementById('formBasicPassword').value);
-    new API().pingToken()
-      .then(response => {
-        if (response.status !== 200) {
-          response.json()
-            .then(res => {
-              console.log(res.errors[0].detail)
-              setTitle("Error " + res.errors[0].status);
-              setContent(res.errors[0].title);
-              setShow(true);
-            })
-        } else {
-          response.json()
-            .then(res => {
-              console.log(JSON.stringify(res.meta));
-              setRedirect(true);
-            })
-        }
-      })
+    const response = await new API().pingToken();
+    console.log(response);
+    if (response.status !== 200) {
+        console.log(response.data.errors[0].detail)
+        setTitle("Error " + response.data.errors[0].status);
+        setContent(response.data.errors[0].title);
+        setShow(true);
+    } else {
+        console.log(JSON.stringify(response.data));
+        setRedirect(true);
+    
+    }
   }
 
   /**
@@ -89,4 +83,8 @@ export function LoginForm() {
       </Form>
     </UpLogin>
   );
+}
+
+function AccountData() {
+  console.log('test');
 }

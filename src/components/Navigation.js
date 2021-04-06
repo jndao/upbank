@@ -75,7 +75,10 @@ function Header() {
   );
 }
 
-
+/**
+ * Handles all logout functions including the logging out itself
+ * @returns JSX Element
+ */
 function LogOut() {
   const [logOut, setLogOut] = useState(false);
 

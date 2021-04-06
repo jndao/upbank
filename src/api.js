@@ -4,8 +4,7 @@
  * @param {JSON} options Options for the request via path
  * @returns json response
  */
-const getJSON = (path, options) => {
-    return(fetch(path, options)).catch(err => console.log("err.message"));
+async function getJSON(path, options) {
 }   
     
 /**
@@ -17,11 +16,24 @@ const getJSON = (path, options) => {
 export default class API {
     constructor() {
         this.url = 'https://api.up.com.au/api/v1';
+        this.status = 'undefined';
+        this.data = 'undefined';
+        this.loading = false;
     }
+
+    async getJSON(path, options) {
+        this.loading = true;
+        const response = await fetch(path, options);
+
+        this.status = response.status;
+        this.data = await response.json();
+        this.loading = false;
+    }
+
     /**
      * Pings token and returns a promise
      */
-    pingToken() {
+    async pingToken() {
         const data = {
             'method': 'GET',
             'headers': {
@@ -29,13 +41,14 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
-        return getJSON(`${this.url}/util/ping`, data);
+        await this.getJSON(`${this.url}/util/ping`, data);
+        return {'status': this.status, 'data': this.data};
     }
     /**
      * Gets all bank account data
      * @returns promise
      */
-    getAccounts() {
+    async getAccounts() {
         const data = {
             'method': 'GET',
             'headers': {
@@ -43,6 +56,7 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
+        await this.getJSON(`${this.url}/util/ping`, data);
         return getJSON(`${this.url}/accounts`, data);
     }
     /**
@@ -50,7 +64,7 @@ export default class API {
      * @param {string} id account id
      * @returns promise
      */
-    getIdAccount(id) {
+    async getIdAccount(id) {
         const data = {
             'method': 'GET',
             'headers': {
@@ -58,6 +72,7 @@ export default class API {
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
+        await this.getJSON(`${this.url}/util/ping`, data);
         return getJSON(`${this.url}/accounts/${id}`, data);
     }
 }
