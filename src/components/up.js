@@ -19,6 +19,11 @@ export function LoginForm() {
   const [title, setTitle] = useState('No Title');
   const [content, setContent] = useState('No Content');
   
+  /**
+   * Given an event, will handle fetching account data.
+   * If successfull, will direct to showing all accounts
+   * @param {event} e submit event
+   */
   let handleSubmit = (e) => {
     //reset setShow
     setShow(false);
@@ -47,6 +52,9 @@ export function LoginForm() {
       })
   }
 
+  /**
+   * default form
+   */
   return (
     <>
       {
