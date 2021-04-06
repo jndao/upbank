@@ -1,0 +1,15 @@
+// theme colors
+$theme-colors: (
+  "primary": #FF7A64,
+  "secondary": #1A1A22,
+  "danger": #ff4136
+);
+
+// modal colors
+$modal-content-bg: #FF7A64;
+$modal-content-border-color: #FF7A64;
+$modal-header-border-color: #1A1A22;
+$modal-footer-border-color: #FF7A64;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';

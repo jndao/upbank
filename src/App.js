@@ -2,14 +2,11 @@ import './App.css';
 import React from 'react';
 
 // components
-import {LoginForm} from './components/up.js';
-
+import {Navigation} from './Router.js'
 function App() {
 
   return (
-    <>
-      <LoginForm title='lol' content='lool'/>
-    </>
+    <Navigation/>
   );
 }
 

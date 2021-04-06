@@ -3,12 +3,28 @@
  */
 
 import React, { useState } from 'react';
-
 // bootstrap imports
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Navbar } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import API from '../api.js';
-import {NewModal} from './modal.js';
+import API from '../Api.js';
+import {NewModal} from './Modal.js';
+import {UpTheme, UpLogin} from '../style/UpStyle.js';
+
+export function Header() {
+  return (
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/">
+          <img
+            src="/logo.gif"
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+            alt="Upbank Logo"
+          />
+        </Navbar.Brand>
+      </Navbar>
+  );
+}
 
 /**
  * Is the Login form. Will show modal error if not working properly
@@ -56,7 +72,7 @@ export function LoginForm() {
    * default form
    */
   return (
-    <>
+    <UpLogin><h1>Log In</h1> <br />
       <div>
       {
         show
@@ -64,17 +80,22 @@ export function LoginForm() {
         <NewModal show={show} title={title} content={content} />
       }</div>
       <Form onSubmit={handleSubmit}>
+
         <Form.Group controlId="formBasicPassword" >
           <Form.Label>Up Api Token</Form.Label>
-          <Form.Control type="password" placeholder="Paste Token"/>
+          <Form.Control type="password" placeholder="Paste token here"/>
           <Form.Text className="text-muted">
-            We'll never share your token with anyone else.
+            Not made in association with UpBank. I just really like their app.
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit" >
-          Submit
+        <Button classname="btn btn-primary" type="submit" >
+          Log In
         </Button>
+        <a className="btn btn-link text-left text-muted" href="https://api.up.com.au/getting_started" target="_blank">
+          Don't have a token?
+        </a>
+
       </Form>
-    </>
+    </UpLogin>
   );
 }
