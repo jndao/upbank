@@ -54,7 +54,7 @@ function About() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
           </Navbar>
-          <FadeIn></FadeIn><AboutContent />
+          <FadeIn><AboutContent /></FadeIn>
         </UpTheme>
       <NavFooter/>
     </>
