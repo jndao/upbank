@@ -15,7 +15,7 @@ import API from '../Api.js';
 import {NewModal} from './Modal.js';
 
 // corresponding style file
-import {UpLogin, AcContainer} from '../style/UpStyle.js';
+import {UpLogin, AccountContainer, AccountCard} from '../style/UpStyle.js';
 import FadeIn from 'react-fade-in';
 
 
@@ -105,6 +105,7 @@ export function AccountData() {
   };
 
   const getAccounts = async() => {
+    setAccounts([]);
     const response = await new API().getAccounts();
     if (response.status === 200) {
       const accounts = response.data.data;
@@ -127,8 +128,9 @@ export function AccountData() {
     } else {
       console.log(account);
       return (
-        <div>
-          <Card style={{ width: '18rem' }}>
+        <AccountCard>
+          <Card className='mr-2'>
+            <Card.Header>Featured</Card.Header>
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -136,29 +138,32 @@ export function AccountData() {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link className="btn btn-light" href="#">Card Link</Card.Link>
+              <Card.Link className="btn btn-light" href="#">Another Link</Card.Link>
             </Card.Body>
           </Card>
-        </div>
+        </AccountCard>
       );
     }
-
-    
   }
 
+  // initial load
+  React.useEffect(() => {
+    getAccounts();
+  }, 1000)
+
   return (
-    <AcContainer>
-      <h1>Welcome! Your accounts are below.</h1>
-      <h5>You are logged in!</h5>
+    <AccountContainer onLoad={getAccounts}>
+      <h1 style={{paddingTop: "5%"}}>Welcome!</h1>
+      <h10 style={{padding: "2%"}}>You're Logged In!</h10>
       <div>
-        <Button onClick={getAccounts}>Show/Update Accounts</Button>
+        <Button onClick={getAccounts}>Update Accounts</Button>
       </div>
       <FadeIn>
         {accountList.map((account, index) => {
           return <Account key={index} data={account} />
         })}
       </FadeIn>
-    </AcContainer>
+    </AccountContainer>
   );
 }

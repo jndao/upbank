@@ -18,11 +18,24 @@ export const UpLogin = styled.div `
     text-align: left;
 `;
 
-export const AcContainer = styled.div `
+export const AccountContainer = styled.div `
     margin: auto;
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 `
+
+export const AccountCard = styled.div `
+    margin-top: 10%;
+    transition: 0.5s;
+    opacity: 0.85;
+    color: white;
+    text-align: left;
+    &:hover {
+        cursor: pointer; 
+        opacity: 1;
+    }
+`;
