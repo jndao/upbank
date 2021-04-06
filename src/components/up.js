@@ -141,8 +141,8 @@ const Account = (props) => {
       const handleShowTransaction = async() => {
       // showing modal before to avoid deplay between click and opening modal
       showModal(true);
-      setTitle('Loading');
-      setContent('Loading');
+      setTitle('Loading...');
+      setContent('Loading...');
 
       // creating and showing new modal
       const response = await new API().retrieveTransactions(account.id);
