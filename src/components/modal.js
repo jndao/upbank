@@ -15,7 +15,7 @@ export function NewModal(props) {
   const title = props.title;
   const content = props.content;
 
-  const toggle = () => setShow(!show);
+  const toggle = () => setShow(false);
   // returns a modal with title and content given by props
   return (
     <>

@@ -63,7 +63,7 @@ export function LoginForm(props) {
       <UpLogin><h1>Log In</h1> <br />
         <div>
         {
-          show
+          show 
           &&
           <NewModal show={show} title={title} content={content} />
         }</div>
@@ -139,21 +139,27 @@ const Account = (props) => {
           currencyCode = attributes.balance.currencyCode,
           createdAt = attributes.createdAt.substring(0, attributes.createdAt.indexOf('T'));
       const handleShowTransaction = async() => {
-      // showing modal before to avoid deplay between click and opening modal
-      showModal(true);
+      // showing loading modal before to avoid confusion between click and opening modal
       setTitle('Loading...');
       setContent('Loading...');
-
+      showModal(true);
+      
       // creating and showing new modal
       const response = await new API().retrieveTransactions(account.id);
+      // close loading modal
+      showModal(false);
+
       if (response.status === 200) {
-        // setting content for successful retrieval
+        // setting content for successful retrieval and showing list
         setTitle(displayName + "'s Recent Transactions");
         setContent(transactionList(response.data.data));
+        showModal(true);
+
       } else {
-        // setting content for unsuccessful retrieval
+        // setting content for unsuccessful retrieval and showing error
         setTitle('Error ' + response.status);
         setContent(response.title);
+        showModal(true);
       }
     }
     // returning an account card
