@@ -15,7 +15,7 @@ import API from '../Api.js';
 import {NewModal} from './Modal.js';
 
 // corresponding style file
-import {UpLogin, AccountContainer, AccountCard} from '../style/UpStyle.js';
+import {UpLogin, AccountContainer, AccountCard} from '../styles/UpStyle.js';
 import FadeIn from 'react-fade-in';
 
 

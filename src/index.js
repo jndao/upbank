@@ -4,8 +4,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // import custom theme above everythign else
-import './custom.scss';
-import './index.css';
+import './styles/custom.scss';
+import './styles/index.css';
 
 ReactDOM.render(
     <App />,

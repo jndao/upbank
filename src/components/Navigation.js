@@ -14,7 +14,7 @@ import {LoginForm, AccountData} from './Up.js';
 import {AboutContent} from './About.js';
 
 // The general theme of the app
-import {UpTheme} from '../style/UpStyle.js';
+import {UpTheme} from '../styles/UpStyle.js';
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 

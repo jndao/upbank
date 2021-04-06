@@ -2,7 +2,7 @@
  * Contains all components relating to the about section
  */
 
-import {AboutDiv} from '../style/UpStyle';
+import {AboutDiv} from '../styles/UpStyle';
 import FadeIn from 'react-fade-in';
 
 
