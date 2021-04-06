@@ -8,7 +8,6 @@ export const UpTheme = styled.div `
     width: 100%;
     background-color: #1A1A22;
     color: #FF7A64;
-    justify-content: center;
 `;
 
 export const UpLogin = styled.div `

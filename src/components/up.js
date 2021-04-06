@@ -9,11 +9,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import API from '../Api.js';
 import {NewModal} from './Modal.js';
 import {UpLogin} from '../style/UpStyle.js';
+import { Redirect } from 'react-router';
 
 export function Header() {
   return (
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/accounts">
           <img
             src="/logo.gif"
             width="40"
@@ -34,7 +35,7 @@ export function LoginForm() {
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState('No Title');
   const [content, setContent] = useState('No Content');
-  
+  const [redirect, setRedirect] = useState(false);
   /**
    * Given an event, will handle fetching account data.
    * If successfull, will direct to showing all accounts
@@ -62,7 +63,7 @@ export function LoginForm() {
           response.json()
             .then(res => {
               console.log(JSON.stringify(res.meta));
-              alert(JSON.stringify(res));
+              setRedirect(true);
             })
         }
       })
@@ -79,7 +80,12 @@ export function LoginForm() {
         &&
         <NewModal show={show} title={title} content={content} />
       }</div>
-
+      <div>
+      {
+        redirect
+        &&
+        <Redirect to="/accounts"/>
+      }</div>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicPassword" >
           <Form.Label>Up Api Token</Form.Label>
@@ -88,7 +94,7 @@ export function LoginForm() {
             Token is not shared. All sensitive data is stored to your local machine.
           </Form.Text>
         </Form.Group>
-        <Button classname="btn btn-primary" type="submit" >
+        <Button className="btn btn-primary" type="submit" >
           Log In
         </Button>
         <a className="btn btn-link text-left text-muted" href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">

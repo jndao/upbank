@@ -23,6 +23,9 @@ export function Navigation() {
                 <Route path="/about">
                     <h1>This is the about page</h1>
                 </Route>
+                <Route path ="/accounts">
+                    <UpTheme><Header /><h1>This is the accounts page</h1></UpTheme>
+                </Route>
                 <Route path="/">
                     <UpTheme>
                         <Header />
