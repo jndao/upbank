@@ -18,5 +18,10 @@ $modal-footer-border-color: #FF7A64;
 // card colors
 $card-border-color: black;
 $card-bg: #FF7A64;
+$card-border-width: 2px;
+// list group
+$list-group-bg: #1A1A22;
+$list-group-border-color: #FF7A64;
+
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';

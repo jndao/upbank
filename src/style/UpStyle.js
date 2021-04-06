@@ -35,9 +35,11 @@ export const AccountCard = styled.div `
     transition: 0.5s;
     color: white;
     text-align: left;
+    opacity: 0.8;
+
     &:hover {
         cursor: pointer; 
-        transform: scale(1.2);
+        opacity: 1;
     }
 `;
 

@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 
 // bootstrap imports
-import { Button, Form, Card } from 'react-bootstrap';
+import { Button, Form, Card, ListGroup } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // API import
@@ -95,6 +95,24 @@ export function LoginForm(props) {
 }
 
 /**
+ * Given an array of transaction objects, will return an 
+ * ordered list of transactions
+ * used to get recent transactions 
+ * @param {array} obj all transactions
+ */
+const transactionList = (list) => {
+  return (
+    <ListGroup>
+      {list.map((t, index) => {
+        return <ListGroup.Item key={index}>
+            {index + 1}. {t.attributes.description}<text style={{float: 'right'}}>Value: {t.attributes.amount.currencyCode} ${t.attributes.amount.value}</text><br />
+          </ListGroup.Item>
+      })}
+    </ListGroup>
+  )
+}
+
+/**
  * Given account general data, will show card about account
  * @param {Object} props.data Information on account
  * @returns jsx element card
@@ -127,17 +145,23 @@ const Account = (props) => {
       setContent('No Content');
 
       // creating and showing new modal
-      const id = await new API().retrieveTransactions(account.id);
-      console.log(id);
-      setTitle(displayName + "'s Transactions");
-      setContent(JSON.stringify(id.data));
-      showModal(true);
+      const response = await new API().retrieveTransactions(account.id);
+      if (response.status === 200) {
+        setTitle(displayName + "'s Recent Transactions");
+        setContent(transactionList(response.data.data));
+        showModal(true);
+      } else {
+        setTitle('Error ' + response.status);
+        setContent(response.title);
+        showModal(true)
+      }
+      
     }
 
     return (
-      <AccountCard>
+      <AccountCard >
         <div>{show &&<NewModal show={show} title={title} content={content} />}</div>
-        <Card>
+        <Card className="hvr-underline-from-left" onClick={handleShowTransaction}>
           <Card.Header>Account Type: {accountType}</Card.Header>
           <Card.Body>
             <Card.Title>{displayName}</Card.Title>
@@ -145,7 +169,7 @@ const Account = (props) => {
             <Card.Title className="mb-4">
               Balance: {balance}
             </Card.Title>
-            <Card.Link className="btn btn-light" onClick={handleShowTransaction}>Show Recent Transactions</Card.Link>
+            <Card.Link className="btn btn-secondary" onClick={handleShowTransaction}>Show Recent Transactions</Card.Link>
           </Card.Body>
         </Card>
       </AccountCard>
@@ -195,8 +219,7 @@ export function AccountData() {
       <div style={{padding: "1%"}}>
         <Button onClick={getAccounts}>Refresh Accounts</Button>
       </div>
-      <AccountContainer>
-
+      <AccountContainer >
           {accountList.map((account, index) => {
             return <FadeIn transitionDuration="800"><Account key={index} data={account} /></FadeIn>
           })}
