@@ -101,6 +101,9 @@ export function LoginForm(props) {
  */
 const Account = (props) => {
   const account = props.data;
+  const [show, showModal] = useState(false);
+  const [title, setTitle] = useState('No Title');
+  const [content, setContent] = useState('No Content');
   
   if (typeof account !== 'object') {
     return (
@@ -111,25 +114,38 @@ const Account = (props) => {
       <div>Error {account.status}, {account.title} <br />{account.detail}</div>
     );
   } else {
-    console.log(account);
     const attributes = account.attributes;
     const displayName = attributes.displayName,
           accountType = attributes.accountType,
           balance = attributes.balance.value,
           createdAt = attributes.createdAt.substring(0, attributes.createdAt.indexOf('T'));
-    console.log(displayName);
+
+    const handleShowTransaction = async() => {
+      // reset modal if already open
+      showModal(false);
+      setTitle('No Title');
+      setContent('No Content');
+
+      // creating and showing new modal
+      const id = await new API().retrieveTransactions(account.id);
+      console.log(id);
+      setTitle(displayName + "'s Transactions");
+      setContent(JSON.stringify(id.data));
+      showModal(true);
+    }
 
     return (
       <AccountCard>
+        <div>{show &&<NewModal show={show} title={title} content={content} />}</div>
         <Card>
-          <Card.Header>Type: {accountType}</Card.Header>
+          <Card.Header>Account Type: {accountType}</Card.Header>
           <Card.Body>
             <Card.Title>{displayName}</Card.Title>
             <Card.Subtitle className="mb-3 mt-2 text-muted text-small">Created on: {createdAt}</Card.Subtitle>
             <Card.Title className="mb-4">
               Balance: {balance}
             </Card.Title>
-            <Card.Link className="btn btn-light" href="#">Show Transactions</Card.Link>
+            <Card.Link className="btn btn-light" onClick={handleShowTransaction}>Show Recent Transactions</Card.Link>
           </Card.Body>
         </Card>
       </AccountCard>
@@ -141,8 +157,7 @@ const Account = (props) => {
 export function AccountData() {
   const [accountList, setAccounts] = useState([]);
   const [show, showModal] = useState(false);
-  const [title, setTitle] = useState('No Title');
-  const [content, setContent] = useState('No Content');
+
 
   const updateList = (newAccounts) => {
     const newState = newAccounts.map(obj => {return obj});
@@ -175,13 +190,6 @@ export function AccountData() {
 
   return (
     <>
-      <div>
-      {
-        show
-        &&
-        <NewModal show={show} title={title} content={content} />
-      }</div>
-
       <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
       <h10>You're Logged In!</h10>
       <div style={{padding: "1%"}}>

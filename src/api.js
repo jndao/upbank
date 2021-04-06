@@ -64,7 +64,7 @@ export default class API {
         return {'status': this.status, 'data': this.data};
     }
     /**
-     * Given an id, will return a promise 
+     * Given an id, will return a promise of account  
      * @param {string} id account id
      * @returns promise
      */
@@ -77,6 +77,23 @@ export default class API {
             }
         }
         await this.getJSON(`${this.url}/accounts/${id}`, data);
+        return {'status': this.status, 'data': this.data};
+    }
+    /**
+     * Given an account's id, will return 
+     * details to transactions of given account with id 
+     * @param {string} id account id
+     * @returns promise
+     */
+    async retrieveTransactions(id) {
+        const data = {
+            'method': 'GET',
+            'headers': {
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': "application/x-www-form-urlencoded"
+            }
+        }
+        await this.getJSON(`${this.url}/accounts/${id}/transactions`, data);
         return {'status': this.status, 'data': this.data};
     }
 }

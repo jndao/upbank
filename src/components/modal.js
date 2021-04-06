@@ -19,7 +19,7 @@ export function NewModal(props) {
 
   return (
     <>
-      <Modal show={show} onHide={toggle}>
+      <Modal show={show} onHide={toggle} style={{color: 'white'}}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
