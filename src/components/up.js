@@ -57,12 +57,12 @@ export function LoginForm() {
    */
   return (
     <>
+      <div>
       {
-        show ?
+        show
+        &&
         <NewModal show={show} title={title} content={content} />
-        :
-        null
-      }
+      }</div>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicPassword" >
           <Form.Label>Up Api Token</Form.Label>
