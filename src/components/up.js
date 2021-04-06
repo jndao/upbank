@@ -61,7 +61,7 @@ export function LoginForm(props) {
    * default form
    */
   return (
-    <FadeIn>
+    <>
       <UpLogin><h1>Log In</h1> <br />
         <div>
         {
@@ -92,7 +92,7 @@ export function LoginForm(props) {
 
         </Form>
       </UpLogin>
-    </FadeIn>
+    </>
   );
 }
 
@@ -215,11 +215,7 @@ export function AccountData() {
 
   return (
     <>
-      <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
-      <h10>You're Logged In!</h10>
-      <div style={{padding: "1%"}}>
-        <Button onClick={getAccounts}>Refresh Accounts</Button>
-      </div>
+      <Button onClick={getAccounts}>Refresh Accounts</Button>
       <AccountContainer >
           {accountList.map((account, index) => {
             return <FadeIn transitionDuration="800"><Account key={index} data={account} /></FadeIn>

@@ -20,6 +20,7 @@ import {UpTheme} from '../styles/UpStyle.js';
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 import coolUpLogo from '../assets/logo.gif';
+import FadeIn from 'react-fade-in';
 
 /**
  * A router to navigate through react app
@@ -28,43 +29,82 @@ import coolUpLogo from '../assets/logo.gif';
 export function AppRouter() {
   return (
     <>
-      <Router basename=''>
+      <Router>
         <Switch>
-          <Route path="/about">
-            <UpTheme>
-              <Navbar bg="dark" variant="dark">
-                <InfoNav/>
-              </Navbar>
-                <AboutContent />
-            </UpTheme>
-            <NavFooter/>
-          </Route>
-
-          <Route path ="/accounts">
-            <UpTheme>
-              <Navbar bg="dark" variant="dark">
-                <UserNav/>
-              </Navbar>
+          <Route exact path="/about" component={About}/>
+          <Route exact path ="/accounts" component={Accounts}/>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/"><Redirect to="/login"/></Route>
+          <Route component={NotFound}/>
             
-              <AccountData/>
-            </UpTheme>
-            <NavFooter/>
-          </Route>
-
-          <Route path="/">
-            <UpTheme>
-              <Navbar bg="dark" variant="dark">
-                <InfoNav/>
-              </Navbar>
-              <LoginForm logged={localStorage.getItem('token') !== undefined && true}/>
-            </UpTheme>
-            <NavFooter/>
-          </Route>
-
         </Switch>
       </Router>
     </>
   );
+}
+
+// Main about page component
+function About() {
+  return (
+    <>
+      <UpTheme>
+        <Navbar bg="dark" variant="dark">
+          <InfoNav/>
+          </Navbar>
+          <FadeIn><AboutContent /></FadeIn>
+        </UpTheme>
+      <NavFooter/>
+    </>
+    
+  );
+}
+// Main Account page component
+function Accounts() {
+  return (
+    <>
+      <UpTheme>
+        <Navbar bg="dark" variant="dark">
+          <UserNav/>
+        </Navbar>
+        <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
+        <h10>You're Logged In!</h10>
+        <div style={{padding: "1%"}}>
+          <AccountData/>
+        </div>
+      </UpTheme>
+      <NavFooter/>
+    </>
+  );
+}
+
+// main login page component
+function Login() {
+  return (
+    <>
+      <UpTheme>
+        <Navbar bg="dark" variant="dark">
+          <InfoNav/>
+        </Navbar>
+        <FadeIn><LoginForm logged={localStorage.getItem('token') !== undefined && true}/></FadeIn>
+      </UpTheme>
+      <NavFooter/>
+    </>
+  );
+}
+
+// main 404 not found component
+function NotFound() {
+  return (
+    <>
+      <UpTheme>
+        <Navbar bg="dark" variant="dark">
+          <InfoNav/>
+        </Navbar>
+        <FadeIn><h1>Page not found.</h1></FadeIn>
+      </UpTheme>
+      <NavFooter/>
+    </>
+  )
 }
 
 // footer for every single page
@@ -79,13 +119,19 @@ function NavFooter() {
   );
 }
 
+/*
+
+  Main components that make up the navigation and pages
+
+*/
+
 // when you're not logged in
 function InfoNav() {
   return (
     <>
       <Header/>
       <NavbarCollapse className='justify-content-end'>
-        <Home/> <About/>
+        <HomeNav/> <AboutNav/>
       </NavbarCollapse>
     </>
   );
@@ -97,7 +143,7 @@ function UserNav() {
     <>
       <Header/>
       <NavbarCollapse className='justify-content-end'>
-        <Home/> <About/> <LogOut/>
+        <HomeNav/> <AboutNav/> <LogOut/>
       </NavbarCollapse>
     </>
   );
@@ -134,27 +180,24 @@ function LogOut() {
     setLogOut(true);
   }
 
+  // returns a button. Redirects automatically if already logged out 
+  // (like someone tries to access /accounts)
   return (
     <>
-      <div>
-      {
-        logOut
-        &&
-        <Redirect to="/"/>
-      }</div>
+      <div> { logOut && <Redirect to="/login"/> }</div>
       <Button className='mr-2 btn btn-secondary' onClick={handleLogOut}>Log Out</Button>
     </>
-    
   );
 }
 
-function About() {
+// button to go to About
+function AboutNav() {
   return (
     <Link className='mr-2 btn btn-primary' to='/about'>About</Link>
   );
 }
-
-function Home() {
+// button to go to Home
+function HomeNav() {
   return (
     <Link className='mr-2 btn btn-primary' to='/'>Home</Link>
   );
