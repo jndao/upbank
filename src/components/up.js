@@ -107,7 +107,7 @@ const transactionList = (list) => {
     <ListGroup>
       {list.map((t, index) => {
         return <ListGroup.Item key={index}>
-            {index + 1}. {t.attributes.description}<text style={{float: 'right'}}>Value: {t.attributes.amount.currencyCode} ${t.attributes.amount.value}</text><br />
+            {index + 1}. {t.attributes.description}<text style={{float: 'right'}}>Value: {t.attributes.amount.currencyCode}$ <span style={{color:(parseInt(t.attributes.amount.value)) >= 0 ? 'green' : 'red'}}>{t.attributes.amount.value}</span></text><br />
           </ListGroup.Item>
       })}
     </ListGroup>
@@ -138,9 +138,9 @@ const Account = (props) => {
     const displayName = attributes.displayName,
           accountType = attributes.accountType,
           balance = attributes.balance.value,
+          currencyCode = attributes.balance.currencyCode,
           createdAt = attributes.createdAt.substring(0, attributes.createdAt.indexOf('T'));
-
-    const handleShowTransaction = async() => {
+      const handleShowTransaction = async() => {
       // reset modal if already open
       showModal(false);
       setTitle('No Title');
@@ -157,7 +157,6 @@ const Account = (props) => {
         setTitle('Error ' + response.status);
         setContent(response.title);
       }
-      
     }
 
     return (
@@ -169,7 +168,7 @@ const Account = (props) => {
             <Card.Title>{displayName}</Card.Title>
             <Card.Subtitle className="mb-3 mt-2 text-muted text-small">Created on: {createdAt}</Card.Subtitle>
             <Card.Title className="mb-4">
-              Balance: {balance}
+              Balance: {currencyCode}$ {balance}
             </Card.Title>
             <Card.Link className="btn btn-secondary" onClick={handleShowTransaction}>Show Recent Transactions</Card.Link>
           </Card.Body>
