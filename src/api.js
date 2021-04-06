@@ -40,7 +40,7 @@ export default class API {
         const data = {
             'method': 'GET',
             'headers': {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Authorization': 'Bearer ' + document.getElementById('formBasicPassword').value,
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
