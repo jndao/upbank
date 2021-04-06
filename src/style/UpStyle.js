@@ -8,10 +8,12 @@ export const UpTheme = styled.div `
     width: 100%;
     background-color: #1A1A22;
     color: #FF7A64;
+    text-align: center;
 `;
 
 export const UpLogin = styled.div `
     margin: auto;
     width: 60%;
     padding: 15% 0;
+    text-align: left;
 `;

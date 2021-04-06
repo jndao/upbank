@@ -1,31 +1,16 @@
 /**
  * Where all major up components are
  */
-
 import React, { useState } from 'react';
 // bootstrap imports
-import { Button, Form, Navbar } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import API from '../Api.js';
 import {NewModal} from './Modal.js';
 import {UpLogin} from '../style/UpStyle.js';
 import { Redirect } from 'react-router';
 
-export function Header() {
-  return (
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/accounts">
-          <img
-            src="/logo.gif"
-            width="40"
-            height="40"
-            className="d-inline-block align-top"
-            alt="Upbank Logo"
-          />
-        </Navbar.Brand>
-      </Navbar>
-  );
-}
 
 /**
  * Is the Login form. Will show modal error if not working properly
