@@ -2,6 +2,8 @@
  * Contains all components relating to the about section
  */
 
+import loveGif from '../assets/love.gif'
+
 import {AboutDiv} from '../styles/UpStyle';
 import FadeIn from 'react-fade-in';
 
@@ -30,7 +32,7 @@ export function AboutContent() {
                 <a className='hvr-bob' variant='link' href="https://johndao.dev" rel="noreferrer" target="_blank">here!</a> <br /><br />
                 Thanks for reading and have a good one!<br /><br />
                 <text className="text-muted">From John.</text><br /><br />
-                <img src='/love.gif' width='100' height='100' alt='love upbank animation'/>
+                <img src={loveGif} width='100' height='100' alt='love upbank animation'/>
             </AboutDiv>
         </FadeIn>
     );

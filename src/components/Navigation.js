@@ -1,8 +1,10 @@
 // react imports
 import {
-    BrowserRouter as Router,
+    //BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
+    Link,
 } from "react-router-dom";
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
@@ -17,6 +19,7 @@ import {AboutContent} from './About.js';
 import {UpTheme} from '../styles/UpStyle.js';
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
+import coolUpLogo from '../assets/logo.gif';
 
 /**
  * A router to navigate through react app
@@ -25,9 +28,8 @@ import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 export function AppRouter() {
   return (
     <>
-      <Router>
+      <Router basename='/upbank'>
         <Switch>
-
           <Route path="/about">
             <UpTheme>
               <Navbar bg="dark" variant="dark">
@@ -107,7 +109,7 @@ function Header() {
     <>
         <Navbar.Brand href="/">
           <img
-            src="/logo.gif"
+            src={coolUpLogo}
             width="40"
             height="40"
             className="d-inline-block align-top"
@@ -148,12 +150,12 @@ function LogOut() {
 
 function About() {
   return (
-    <Button className='mr-2 btn btn-primary' href='/about'>About</Button>
+    <Link className='mr-2 btn btn-primary' to='/about'>About</Link>
   );
 }
 
 function Home() {
   return (
-    <Button className='mr-2 btn btn-primary' href='/'>Home</Button>
+    <Link className='mr-2 btn btn-primary' to='/'>Home</Link>
   );
 }

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/upbank/static/css/main.8c51994d.chunk.css",
+    "main.js": "/upbank/static/js/main.f5bff28b.chunk.js",
+    "main.js.map": "/upbank/static/js/main.f5bff28b.chunk.js.map",
+    "runtime-main.js": "/upbank/static/js/runtime-main.711ed9a2.js",
+    "runtime-main.js.map": "/upbank/static/js/runtime-main.711ed9a2.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/upbank/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.f3fdfebb.chunk.js": "/upbank/static/js/2.f3fdfebb.chunk.js",
+    "static/js/2.f3fdfebb.chunk.js.map": "/upbank/static/js/2.f3fdfebb.chunk.js.map",
+    "static/js/3.fd538dd1.chunk.js": "/upbank/static/js/3.fd538dd1.chunk.js",
+    "static/js/3.fd538dd1.chunk.js.map": "/upbank/static/js/3.fd538dd1.chunk.js.map",
+    "index.html": "/upbank/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/upbank/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.8c51994d.chunk.css.map": "/upbank/static/css/main.8c51994d.chunk.css.map",
+    "static/js/2.f3fdfebb.chunk.js.LICENSE.txt": "/upbank/static/js/2.f3fdfebb.chunk.js.LICENSE.txt",
+    "static/media/love.dedb77d3.gif": "/upbank/static/media/love.dedb77d3.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.711ed9a2.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.f3fdfebb.chunk.js",
+    "static/css/main.8c51994d.chunk.css",
+    "static/js/main.f5bff28b.chunk.js"
+  ]
+}
