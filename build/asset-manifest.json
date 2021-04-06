@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/upbank/static/css/main.8c51994d.chunk.css",
-    "main.js": "/upbank/static/js/main.c31189d7.chunk.js",
-    "main.js.map": "/upbank/static/js/main.c31189d7.chunk.js.map",
+    "main.js": "/upbank/static/js/main.dbd4f981.chunk.js",
+    "main.js.map": "/upbank/static/js/main.dbd4f981.chunk.js.map",
     "runtime-main.js": "/upbank/static/js/runtime-main.711ed9a2.js",
     "runtime-main.js.map": "/upbank/static/js/runtime-main.711ed9a2.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/upbank/static/css/2.4c97ca4f.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.d804846d.chunk.js",
     "static/css/main.8c51994d.chunk.css",
-    "static/js/main.c31189d7.chunk.js"
+    "static/js/main.dbd4f981.chunk.js"
   ]
 }

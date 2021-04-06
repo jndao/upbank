@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import FadeIn from 'react-fade-in';
+
 
 // bootstrap styles
 import { Button, Navbar } from 'react-bootstrap';
@@ -19,8 +21,9 @@ import {AboutContent} from './About.js';
 import {UpTheme} from '../styles/UpStyle.js';
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
+// images
 import coolUpLogo from '../assets/logo.gif';
-import FadeIn from 'react-fade-in';
+import fearImage from '../assets/fear.svg';
 
 /**
  * A router to navigate through react app
@@ -67,7 +70,7 @@ function Accounts() {
           <UserNav/>
         </Navbar>
         <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
-        <h10>You're Logged In!</h10>
+        <h5>You're Logged In!</h5>
         <div style={{padding: "1%"}}>
           <AccountData/>
         </div>
@@ -100,7 +103,21 @@ function NotFound() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
         </Navbar>
-        <FadeIn><h1>Page not found.</h1></FadeIn>
+        <FadeIn >
+          <div style={{paddingTop: '5%', paddingBottom: '2%'}}>
+            <h1>Uh Oh!</h1>
+            <h3 >Page doesn't exist.</h3>
+            <img
+              src={fearImage}
+              width="100"
+              height="100"
+              className="d-inline-block align-top"
+              alt="Oh No Emoji"
+          />
+          </div>
+          <HomeNav/>
+          
+        </FadeIn>
       </UpTheme>
       <NavFooter/>
     </>
