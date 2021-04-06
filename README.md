@@ -1,5 +1,5 @@
-# UPBANK App
-This project is planned to be hosted at my [website](http://johndao.dev).  
+# Up Bank App
+This project is a **work in progress** and is planned to be hosted at my [website](http://johndao.dev).  
 Originally started mid last year after the release of my favourite bank's new feature, their [api](https://developer.up.com.au/). After developing my front-end skills I've decided to transform the app from a python commandline app, to a react app integrated into my website.  
 
 ## Table of contents
@@ -14,6 +14,10 @@ Originally started mid last year after the release of my favourite bank's new fe
 After the release of Upbank's API, I have aways imagined myself creating an app where I could check and interact with my finances through my own computer and through something I created by my own.  
 In combination with this, UP bank (as of 6/04/2021) has NO website and is a phone app only banking app.  
 So witht these reasons, I decided to invest some of my time into creating an app of my own that I can control!  
+
+## How to use  
+To run this app on your local machine, use `npm start` (refer to [npm start](#`npm-start`))  
+Otherwise, this app is being deployed on my website and you would be able to access it there!  
 
 ## Available Scripts
 
