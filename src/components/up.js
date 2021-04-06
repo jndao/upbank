@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 
 // bootstrap imports
-import { Button, Form, Fade } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // API import
