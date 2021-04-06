@@ -171,7 +171,7 @@ export function AccountData() {
   // initial load
   React.useEffect(() => {
     getAccounts();
-  }, 1)
+  }, [])
 
   return (
     <>

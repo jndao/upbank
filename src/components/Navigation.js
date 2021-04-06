@@ -52,12 +52,22 @@ export function AppRouter() {
                 <InfoNav/>
               </Navbar>
               <LoginForm logged={localStorage.getItem('token') !== undefined && true}/>
+              <NavFooter/>
             </UpTheme>
           </Route>
 
         </Switch>
       </Router>
     </>
+  );
+}
+
+// footer for every single page
+function NavFooter() {
+  return (
+    <Navbar bg="dark" variant="dark" fixed="bottom">
+
+    </Navbar>
   );
 }
 
