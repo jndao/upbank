@@ -35,6 +35,7 @@ export default class API {
 
     /**
      * Pings token and returns a promise
+     * Used for authentication login
      */
     async pingToken() {
         const data = {

@@ -21,19 +21,22 @@ export const UpLogin = styled.div `
 export const AccountContainer = styled.div `
     display: flex;
     margin: auto;
-    width: 80%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: space-between;
+    flex-wrap: wrap;
+    width: 60%;
+    padding-bottom: 4%;
 `;
 
 export const AccountCard = styled.div `
-    margin-top: 15%;
+    margin-top: 2%;
+    margin-bottom: 20%;
     transition: 0.5s;
     color: white;
     text-align: left;
     &:hover {
         cursor: pointer; 
-        transform: scale(1.3);
+        transform: scale(1.2);
     }
 `;

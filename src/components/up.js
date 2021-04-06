@@ -138,12 +138,11 @@ export function AccountData() {
             <Card.Header>Type: {accountType}</Card.Header>
             <Card.Body>
               <Card.Title>{displayName}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Created on: {createdAt}</Card.Subtitle>
-              <Card.Text>
+              <Card.Subtitle className="mb-3 mt-2 text-muted text-small">Created on: {createdAt}</Card.Subtitle>
+              <Card.Title className="mb-4">
                 Balance: {balance}
-              </Card.Text>
+              </Card.Title>
               <Card.Link className="btn btn-light" href="#">Card Link</Card.Link>
-              <Card.Link className="btn btn-light" href="#">Another Link</Card.Link>
             </Card.Body>
           </Card>
         </AccountCard>
@@ -159,16 +158,17 @@ export function AccountData() {
   return (
     <>
       <h1 style={{paddingTop: "5%"}}>Welcome!</h1>
-      <h10 style={{padding: "2%"}}>You're Logged In!</h10>
-      <div>
+      <h10>You're Logged In!</h10>
+      <div style={{padding: "1%"}}>
         <Button onClick={getAccounts}>Refresh Accounts</Button>
       </div>
       <AccountContainer>
 
           {accountList.map((account, index) => {
-            return <FadeIn><Account key={index} data={account} /></FadeIn>
+            return <FadeIn transitionDuration="800"><Account key={index} data={account} /></FadeIn>
           })}
       </AccountContainer>
+      
     </>
   );
 }
