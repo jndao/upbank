@@ -3,6 +3,7 @@
  */
 import styled from 'styled-components';
 
+// main theming for the app
 export const UpTheme = styled.div `
     min-height: 100vh;
     width: 100%;
@@ -11,6 +12,7 @@ export const UpTheme = styled.div `
     text-align: center;
 `;
 
+// main login div
 export const UpLogin = styled.div `
     margin: auto;
     width: 60%;
@@ -18,6 +20,7 @@ export const UpLogin = styled.div `
     text-align: left;
 `;
 
+// container for account cards
 export const AccountContainer = styled.div `
     display: flex;
     margin: auto;
@@ -29,6 +32,7 @@ export const AccountContainer = styled.div `
     padding-bottom: 4%;
 `;
 
+// div for account cards
 export const AccountCard = styled.div `
     margin-top: 2%;
     margin-bottom: 20%;
@@ -43,6 +47,7 @@ export const AccountCard = styled.div `
     }
 `;
 
+// about section paragraph
 export const AboutDiv = styled.div `
     margin: auto;
     margin-top: 3%; 

@@ -1,7 +1,7 @@
 /**
  * Where all major up components are
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Redirect } from 'react-router';
 
 // bootstrap imports
@@ -29,8 +29,6 @@ export function LoginForm(props) {
   const [content, setContent] = useState('No Content');
   const [redirect, setRedirect] = useState(sessionStorage.getItem('token') !== null);
   
-  
-
   /**
    * Given an event, will handle fetching account data.
    * If successfull, will direct to showing all accounts
@@ -58,7 +56,7 @@ export function LoginForm(props) {
   }
 
   /**
-   * default form
+   * default login form
    */
   return (
     <>
@@ -158,7 +156,7 @@ const Account = (props) => {
         setContent(response.title);
       }
     }
-
+    // returning an account card
     return (
       <AccountCard >
         <div>{show &&<NewModal show={show} title={title} content={content} />}</div>
@@ -178,7 +176,11 @@ const Account = (props) => {
   }
 }
 
-
+/**
+ * Handles most of the initial account data functions
+ * Shows a list of account cards with results
+ * @returns jsx element
+ */
 export function AccountData() {
   const [accountList, setAccounts] = useState([]);
 
@@ -206,8 +208,8 @@ export function AccountData() {
                   ]);
     }
   }
-  // initial load
-  React.useEffect(() => {
+  // initial load of the accounts when logging in
+  useEffect(() => {
     const getAccounts = async() => {
       setAccounts([]);
       const response = await new API().getAccounts();
@@ -225,6 +227,7 @@ export function AccountData() {
     getAccounts();
   }, [])
 
+  // returns the list of accounts and a button to refresh them ONLY. No headers
   return (
     <>
       <Button onClick={getAccounts}>Refresh Accounts</Button>

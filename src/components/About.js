@@ -2,10 +2,16 @@
  * Contains all components relating to the about section
  */
 
+// love upbank gif
 import loveGif from '../assets/love.gif'
 
+// about style paragraph div
 import {AboutDiv} from '../styles/UpStyle';
 
+/**
+ * All the content required to show an about page!
+ * @returns JSX element
+ */
 export function AboutContent() {
     return (
         <>

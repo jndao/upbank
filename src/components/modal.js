@@ -16,7 +16,7 @@ export function NewModal(props) {
   const content = props.content;
 
   const toggle = () => setShow(!show);
-
+  // returns a modal with title and content given by props
   return (
     <>
       <Modal show={show} onHide={toggle} style={{color: 'white'}}>

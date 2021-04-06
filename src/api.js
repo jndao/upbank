@@ -1,10 +1,12 @@
+// backoff was recommended in the developer docs 
+// so it is included and integrated
 import { backOff } from "exponential-backoff";
     
 /**
  * Default API object class for upbank API
- * Made by John
  * Converted from original python to create web app
  * used for this URL https://api.up.com.au
+ * Made by John
  */
 export default class API {
     constructor() {

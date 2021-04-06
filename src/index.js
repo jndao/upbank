@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// import custom theme above everythign else
+// import custom theme above everything else
 import './styles/custom.scss';
 import './styles/index.css';
 

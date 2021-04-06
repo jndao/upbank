@@ -5,7 +5,6 @@ import React from 'react';
 import {AppRouter} from './components/Navigation.js'
 
 function App() {
-
   return (
     <AppRouter/>
   );
