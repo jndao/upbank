@@ -9,7 +9,6 @@ import { Redirect } from 'react-router';
 
 // bootstrap styles
 import { Button, Navbar } from 'react-bootstrap';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 // Up components
 import {LoginForm, AccountData} from './Up.js';
 
@@ -28,10 +27,10 @@ export function AppRouter() {
         <Switch>
 
           <Route path="/about">
-            <Navbar bg="dark" variant="dark">
-              <InfoNav/>
-            </Navbar>
             <UpTheme>
+              <Navbar bg="dark" variant="dark">
+                <InfoNav/>
+              </Navbar>
               <h1>This is the about page</h1>
             </UpTheme>
           </Route>

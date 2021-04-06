@@ -96,7 +96,7 @@ export function LoginForm(props) {
 export function AccountData() {
   return (
     <AcContainer>
-      <h1>Welcome!</h1>
+      <h1>Welcome! Your accounts are below.</h1>
       <h5>You are logged in!</h5>
     </AcContainer>
   );
