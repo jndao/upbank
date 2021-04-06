@@ -40,3 +40,17 @@ export const AccountCard = styled.div `
         transform: scale(1.2);
     }
 `;
+
+export const AboutDiv = styled.div `
+    margin: auto;
+    margin-top: 3%; 
+    width: 80%; 
+    color: #FFF06B;
+    letter-spacing: 1.5px;
+    line-height: 200%;
+    font-size: large;
+    padding-bottom: 15%;
+    &:hover {
+        cursor: cursor;
+    }
+`;

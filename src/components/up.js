@@ -182,7 +182,7 @@ export function AccountData() {
         <NewModal show={show} title={title} content={content} />
       }</div>
 
-      <h1 style={{paddingTop: "5%"}}>Welcome!</h1>
+      <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
       <h10>You're Logged In!</h10>
       <div style={{padding: "1%"}}>
         <Button onClick={getAccounts}>Refresh Accounts</Button>

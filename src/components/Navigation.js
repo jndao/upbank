@@ -11,6 +11,7 @@ import { Redirect } from 'react-router';
 import { Button, Navbar } from 'react-bootstrap';
 // Up components
 import {LoginForm, AccountData} from './Up.js';
+import {AboutContent} from './About.js';
 
 // The general theme of the app
 import {UpTheme} from '../style/UpStyle.js';
@@ -31,9 +32,9 @@ export function AppRouter() {
               <Navbar bg="dark" variant="dark">
                 <InfoNav/>
               </Navbar>
-              <h1>This is the about page</h1>
-              <NavFooter/>
+              <AboutContent />
             </UpTheme>
+            <NavFooter/>
           </Route>
 
           <Route path ="/accounts">
@@ -43,8 +44,8 @@ export function AppRouter() {
               </Navbar>
             
               <AccountData/>
-              <NavFooter/>
             </UpTheme>
+            <NavFooter/>
           </Route>
 
           <Route path="/">
@@ -53,8 +54,8 @@ export function AppRouter() {
                 <InfoNav/>
               </Navbar>
               <LoginForm logged={localStorage.getItem('token') !== undefined && true}/>
-              <NavFooter/>
             </UpTheme>
+            <NavFooter/>
           </Route>
 
         </Switch>
