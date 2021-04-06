@@ -21,7 +21,7 @@ export const UpLogin = styled.div `
 export const AccountContainer = styled.div `
     display: flex;
     margin: auto;
-    flex-direction: column;
+    flex-direction: column;mj
     justify-content: center;
     align-items: space-between;
     flex-wrap: wrap;
@@ -35,7 +35,7 @@ export const AccountCard = styled.div `
     transition: 0.5s;
     color: white;
     text-align: left;
-    opacity: 0.8;
+    opacity: 0.85;
 
     &:hover {
         cursor: pointer; 

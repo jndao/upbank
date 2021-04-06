@@ -27,11 +27,11 @@ a:active {
   right: 100%;
   bottom: 0;
   background: #FFF06B;
-  height: 4px;
+  height: 10px;
   -webkit-transition-property: right;
   transition-property: right;
-  -webkit-transition-duration: 0.42s;
-  transition-duration: 0.42s;
+  -webkit-transition-duration: 0.45s;
+  transition-duration: 0.45s;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
