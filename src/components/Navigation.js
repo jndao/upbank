@@ -28,7 +28,7 @@ import coolUpLogo from '../assets/logo.gif';
 export function AppRouter() {
   return (
     <>
-      <Router basename='/upbank'>
+      <Router basename=''>
         <Switch>
           <Route path="/about">
             <UpTheme>
