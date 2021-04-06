@@ -43,7 +43,7 @@ export function LoginForm(props) {
     setContent('No Content');
 
     e.preventDefault();
-    const response = await new API().pingToken(document.getElementById('formBasicPassword').value);
+    const response = await new API().pingToken();
     if (response.status !== 200) {
         console.log(response.data.errors[0].detail)
         setTitle("Error " + response.data.errors[0].status);
