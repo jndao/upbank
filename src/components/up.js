@@ -27,7 +27,7 @@ export function LoginForm(props) {
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState('No Title');
   const [content, setContent] = useState('No Content');
-  const [redirect, setRedirect] = useState(localStorage.getItem('token') !== null);
+  const [redirect, setRedirect] = useState(sessionStorage.getItem('token') !== null);
   
   
 
@@ -51,7 +51,7 @@ export function LoginForm(props) {
         setShow(true);
     } else {
       // set token ONLY if successful
-      localStorage.setItem('token', document.getElementById('formBasicPassword').value);
+      sessionStorage.setItem('token', document.getElementById('formBasicPassword').value);
       console.log(JSON.stringify(response.data));
       setRedirect(true);
     }

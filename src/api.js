@@ -56,7 +56,7 @@ export default class API {
         const data = {
             'method': 'GET',
             'headers': {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
@@ -72,7 +72,7 @@ export default class API {
         const data = {
             'method': 'GET',
             'headers': {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }
@@ -89,7 +89,7 @@ export default class API {
         const data = {
             'method': 'GET',
             'headers': {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
                 'Content-Type': "application/x-www-form-urlencoded"
             }
         }

@@ -85,7 +85,7 @@ function Login() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
         </Navbar>
-        <FadeIn><LoginForm logged={localStorage.getItem('token') !== undefined && true}/></FadeIn>
+        <FadeIn><LoginForm logged={sessionStorage.getItem('token') !== undefined && true}/></FadeIn>
       </UpTheme>
       <NavFooter/>
     </>
@@ -172,11 +172,11 @@ function Header() {
  * @returns JSX Element
  */
 function LogOut() {
-  const [logOut, setLogOut] = useState(localStorage.getItem('token') === null);
+  const [logOut, setLogOut] = useState(sessionStorage.getItem('token') === null);
 
   const handleLogOut = (e) => {
     e.preventDefault();
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     setLogOut(true);
   }
 
