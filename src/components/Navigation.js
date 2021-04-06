@@ -17,6 +17,7 @@ import {AboutContent} from './About.js';
 import {UpTheme} from '../style/UpStyle.js';
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
+
 /**
  * A router to navigate through react app
  * @returns A navbar Router
@@ -32,7 +33,7 @@ export function AppRouter() {
               <Navbar bg="dark" variant="dark">
                 <InfoNav/>
               </Navbar>
-              <AboutContent />
+                <AboutContent />
             </UpTheme>
             <NavFooter/>
           </Route>

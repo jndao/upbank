@@ -61,36 +61,38 @@ export function LoginForm(props) {
    * default form
    */
   return (
-    <UpLogin><h1>Log In</h1> <br />
-      <div>
-      {
-        show
-        &&
-        <NewModal show={show} title={title} content={content} />
-      }</div>
-      <div>
-      {
-        redirect
-        &&
-        <Redirect to="/accounts"/>
-      }</div>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicPassword" >
-          <Form.Label>Up Api Token</Form.Label>
-          <Form.Control type="password" placeholder="Paste token here"/>
-          <Form.Text className="text-muted">
-            Token is not shared. All sensitive data is stored to your local machine.
-          </Form.Text>
-        </Form.Group>
-        <Button className="btn btn-primary" type="submit" >
-          Log In
-        </Button>
-        <a className="btn btn-link text-left text-muted" href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">
-          Don't have a token?
-        </a>
+    <FadeIn>
+      <UpLogin><h1>Log In</h1> <br />
+        <div>
+        {
+          show
+          &&
+          <NewModal show={show} title={title} content={content} />
+        }</div>
+        <div>
+        {
+          redirect
+          &&
+          <Redirect to="/accounts"/>
+        }</div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="formBasicPassword" >
+            <Form.Label>Up Api Token</Form.Label>
+            <Form.Control type="password" placeholder="Paste token here"/>
+            <Form.Text className="text-muted">
+              Token is not shared. All sensitive data is stored to your local machine.
+            </Form.Text>
+          </Form.Group>
+          <Button className="btn btn-primary" type="submit" >
+            Log In
+          </Button>
+          <a className="btn btn-link text-left text-muted" href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">
+            Don't have a token?
+          </a>
 
-      </Form>
-    </UpLogin>
+        </Form>
+      </UpLogin>
+    </FadeIn>
   );
 }
 
@@ -180,7 +182,6 @@ const Account = (props) => {
 
 export function AccountData() {
   const [accountList, setAccounts] = useState([]);
-  const [show, showModal] = useState(false);
 
 
   const updateList = (newAccounts) => {

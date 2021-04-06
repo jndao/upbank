@@ -3,10 +3,12 @@
  */
 
 import {AboutDiv} from '../style/UpStyle';
+import FadeIn from 'react-fade-in';
+
 
 export function AboutContent() {
     return (
-        <>
+        <FadeIn>
             <h1 style={{paddingTop: '3%'}}>About the app</h1>
             <AboutDiv style={{}}>
                 This is a project that I have wanted to do ever since I happened upon up bank quite a while ago. <br /><br />
@@ -28,6 +30,6 @@ export function AboutContent() {
                 <text className="text-muted">From John.</text><br /><br />
                 <img src='/love.gif' width='100' height='100' alt='love upbank animation'/>
             </AboutDiv>
-        </>
+        </FadeIn>
     );
 }
