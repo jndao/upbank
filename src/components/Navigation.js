@@ -158,6 +158,7 @@ function NavFooter() {
   return (
     <Navbar bg="dark" variant="dark" fixed="bottom">
       <NavbarCollapse className='justify-content-end'>
+        <Button className='btn' variant='link'href='https://github.com/jnddao/upbank'>Github</Button>
         <Button className='btn' variant='link'href='mailto:work@johndao.dev?subject=I%20found%20a%20bug%20in%20your%20Up%20Bank%20App.'>Found a bug?</Button>
         <Button className='btn' variant='link'><Link to='/terms'>Terms of use</Link></Button>
         <Button className='btn' variant='link'href='https://johndao.dev'>About me</Button>
