@@ -15,7 +15,7 @@ import FadeIn from 'react-fade-in';
 import { Button, Navbar } from 'react-bootstrap';
 // Up components
 import {LoginForm, AccountData} from './Up.js';
-import {AboutContent} from './About.js';
+import {AboutContent, AboutTerms} from './About.js';
 
 // The general theme of the app
 import {UpTheme} from '../styles/UpStyle.js';
@@ -37,6 +37,7 @@ export function AppRouter() {
           <Route exact path="/about" component={About}/>
           <Route exact path ="/accounts" component={Accounts}/>
           <Route exact path="/login" component={Login}/>
+          <Route exact path="/terms" component={Terms}/>
           <Route exact path="/"><Redirect to="/login"/></Route>
           <Route component={NotFound}/>
             
@@ -61,6 +62,22 @@ function About() {
     
   );
 }
+
+// Main about page component
+function Terms() {
+  return (
+    <>
+      <UpTheme>
+        <Navbar bg="dark" variant="dark">
+          <InfoNav/>
+          </Navbar>
+          <FadeIn><AboutTerms /></FadeIn>
+        </UpTheme>
+      <NavFooter/>
+    </>
+    
+  );
+}
 // Main Account page component
 function Accounts() {
   return (
@@ -69,8 +86,10 @@ function Accounts() {
         <Navbar bg="dark" variant="dark">
           <UserNav/>
         </Navbar>
-        <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
-        <h5>You're Logged In!</h5>
+        <FadeIn>
+          <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
+          <h5>You're Logged In!</h5>
+        </FadeIn>
         <div style={{padding: "1%"}}>
           <AccountData/>
         </div>
@@ -130,6 +149,7 @@ function NavFooter() {
     <Navbar bg="dark" variant="dark" fixed="bottom">
       <NavbarCollapse className='justify-content-end'>
         <Button className='btn' variant='link'href='mailto:work@johndao.dev?subject=I%20found%20a%20bug%20in%20your%20Up%20Bank%20App.'>Found a bug?</Button>
+        <Button className='btn' variant='link'><Link to='/terms'>Terms of use</Link></Button>
         <Button className='btn' variant='link'href='https://johndao.dev'>About me</Button>
       </NavbarCollapse>
     </Navbar>
@@ -154,6 +174,7 @@ function InfoNav() {
   );
 }
 
+
 // when you're logged in
 function UserNav() {
   return (
@@ -170,7 +191,7 @@ function UserNav() {
 function Header() {
   return (
     <>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/upbank">
           <img
             src={coolUpLogo}
             width="40"

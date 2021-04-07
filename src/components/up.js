@@ -3,7 +3,7 @@
  */
 import React, { useState, useEffect} from 'react';
 import { Redirect } from 'react-router';
-
+import { Link } from 'react-router-dom';
 // bootstrap imports
 import { Button, Form, Card, ListGroup } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -78,7 +78,8 @@ export function LoginForm(props) {
             <Form.Label>Up Api Token</Form.Label>
             <Form.Control type="password" placeholder="Paste token here"/>
             <Form.Text className="text-muted">
-              Token is not shared. All sensitive data is stored to your local device.
+              By using this experimental app, you understand and agree to the <a href="https://johndao.dev/upbank/#/terms" rel="noreferrer" target="_blank">terms of use.</a><br />
+              All sensitive data is stored to your local device and erased when you close your tab. If you feel if your token has been compromised, regenerate a new one <a href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">here.</a>
             </Form.Text>
           </Form.Group>
           <Button className="btn btn-primary" type="submit" >
@@ -236,7 +237,7 @@ export function AccountData() {
   // returns the list of accounts and a button to refresh them ONLY. No headers
   return (
     <>
-      <Button onClick={getAccounts}>Refresh Accounts</Button>
+      <FadeIn><Button onClick={getAccounts}>Refresh Accounts</Button></FadeIn>
       <AccountContainer >
           {accountList.map((account, index) => {
             return <FadeIn transitionDuration="800"><Account key={index} data={account} /></FadeIn>
