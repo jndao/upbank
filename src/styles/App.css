@@ -1,5 +1,13 @@
+/* prevent overscrolling on mac*/
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
-  font-family: Circular Std,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif
+  font-family: Circular Std,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  height: 100%;
+  overflow: auto;
 }
 /* I hate link line hovering */
 a:hover {
