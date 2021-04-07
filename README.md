@@ -1,12 +1,14 @@
 # Up Bank App
-This project is a **work in progress** and is planned to be hosted at my [website](http://johndao.dev).  
-Originally started mid last year after the release of my favourite bank's new feature, their [api](https://developer.up.com.au/). After developing my front-end skills I've decided to transform the app from a python commandline app, to a react app integrated into my website.  
+This project is a **work in progress** and is planned to be hosted at my website [here](http://johndao.dev/upbank).  
+Originally started mid last year after the release of my favourite bank's new feature, their [api](https://developer.up.com.au/). After developing my front-end skills I've decided to transform the app from the initial version of it being a python command line app, to a react app integrated into my website.  
 
 ## Table of contents
 <ol>
     <li> <a href="#Why-I-made-this">Why I made this</a> </li>
-    <li> <a href="#Available-Scripts">Avaliable Scripts</a> 
-    <li> <a href="#Learn-More">Learn More</a> 
+    <li> <a href="#about-this-project">About this project</a> </li>
+    <li> <a href="#Requirements">Avaliable Scripts</a> </li>
+    <li> <a href="#How-to-use">How to use</a></li>
+    <li> <a href="#Licence">Licence</a> </li>
 </ol>  
 
 ## Why I made this
@@ -15,73 +17,25 @@ After the release of Upbank's API, I have aways imagined myself creating an app 
 In combination with this, UP bank (as of 6/04/2021) has NO website and is a phone app only banking app.  
 So witht these reasons, I decided to invest some of my time into creating an app of my own that I can control!  
 
+## About thie project  
+This project has been built with react and react-bootstrap (customised with sass) alongside the variety of packages implemented into node-modules you can find in [package.json](https://github.com/jnddao/upbank/blob/main/package.json). The majority of the app has been build in the first couple days of implementation and deployment. More features are planned to be released as I continually work on this project in my free time.  
+ 
+## Requirements  
+There are currently no system requirements for utilising the app where it is currently deployed. Only the use of the upbank token you can find [here.](https://api.up.com.au/getting_started).  
+  
+If you are forking this repository, there are only a few requirements:  
+<ul>
+    <li>NPM</li>
+    <li>A browser (I used chrome to develop this)</li>
+</ul>  
+  
+Refer to [how to use](#how-to-use) to get started. 
+  
+
 ## How to use  
-To run this app on your local machine, use `npm start` (refer to [avaliable scripts](#Available-Scripts))  
+If you are wanting to run this on your local machine use `npm install` to install the node modules,  and then`npm start` to run the local web server.  
 Otherwise, this app is being deployed on my website and you would be able to access it there!  
+ 
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licence  
+This app is distributed under the MIT licence. More details [here](https://github.com/jnddao/upbank/blob/main/LICENSE).  
