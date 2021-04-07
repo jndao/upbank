@@ -2,6 +2,8 @@
 This project is a **work in progress** and is planned to be hosted at my website [here](http://johndao.dev/upbank).  
 Originally started mid last year after the release of my favourite bank's new feature, their [api](https://developer.up.com.au/). After developing my front-end skills I've decided to transform the app from the initial version of it being a python command line app, to a react app integrated into my website.  
 
+![alt text](https://github.com/jnddao/upbank/readme.jpg "Up bank app login page")
+
 ## Table of contents
 <ol>
     <li> <a href="#Why-I-made-this">Why I made this</a> </li>
