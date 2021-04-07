@@ -12,9 +12,9 @@ import FadeIn from 'react-fade-in';
 
 
 // bootstrap styles
-import { Button, Navbar } from 'react-bootstrap';
+import { Button, Container, Navbar, Row , Col} from 'react-bootstrap';
 // Up components
-import {LoginForm, AccountData} from './Up.js';
+import {LoginForm, AccountData, RecentData} from './Up.js';
 import {AboutContent, AboutTerms} from './About.js';
 
 // The general theme of the app
@@ -88,11 +88,21 @@ function Accounts() {
         </Navbar>
         <FadeIn>
           <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
-          <h5>You're Logged In!</h5>
+          <h5 style={{paddingBottom: "3%"}}> You're Logged In!</h5>
         </FadeIn>
-        <div style={{padding: "1%"}}>
-          <AccountData/>
-        </div>
+        <Container>
+          <Row>
+            <Col>
+              <div style={{padding: "1%"}}>
+                <AccountData/>
+              </div>
+            </Col>
+            <Col>
+              <RecentData />
+            </Col>
+          </Row>
+        </Container>
+        
       </UpTheme>
       <NavFooter/>
     </>

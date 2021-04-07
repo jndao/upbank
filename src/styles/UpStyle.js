@@ -7,7 +7,7 @@ import styled from 'styled-components';
 export const UpTheme = styled.div `
     min-height: 100vh;
     width: 100%;
-    background-color: #1A1A22;
+    background-color: #25232F;
     color: #FF7A64;
     text-align: center;
 `;
@@ -28,7 +28,7 @@ export const AccountContainer = styled.div `
     justify-content: center;
     align-items: space-between;
     flex-wrap: wrap;
-    width: 60%;
+    width: 100%;
     padding-bottom: 4%;
 `;
 
@@ -61,3 +61,12 @@ export const AboutDiv = styled.div `
         cursor: cursor;
     }
 `;
+
+export const TransactionsContainer = styled.div `
+    text-align: left;
+    padding: 1%;
+    padding-bottom: 15%;
+    &:hover {
+        cursor: cursor;
+    }
+`

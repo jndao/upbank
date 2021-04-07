@@ -98,4 +98,27 @@ export default class API {
         await this.getJSON(`${this.url}/accounts/${id}/transactions`, data);
         return {'status': this.status, 'data': this.data};
     }
+
+    async getTransactions() {
+        const data = {
+            'method': 'GET',
+            'headers': {
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+                'Content-Type': "application/x-www-form-urlencoded"
+            }
+        }
+        await this.getJSON(`${this.url}/transactions`, data);
+        return {'status': this.status, 'data': this.data};
+    }
+    async getTransactionPage(link) {
+        const data = {
+            'method': 'GET',
+            'headers': {
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+                'Content-Type': "application/x-www-form-urlencoded"
+            }
+        }
+        await this.getJSON(`${link}`, data);
+        return {'status': this.status, 'data': this.data};
+    }
 }

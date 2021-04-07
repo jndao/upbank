@@ -1,3 +1,6 @@
+body {
+  font-family: Circular Std,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif
+}
 /* I hate link line hovering */
 a:hover {
   text-decoration: none !important;

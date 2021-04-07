@@ -3,7 +3,6 @@
  */
 import React, { useState, useEffect} from 'react';
 import { Redirect } from 'react-router';
-import { Link } from 'react-router-dom';
 // bootstrap imports
 import { Button, Form, Card, ListGroup } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,9 +14,12 @@ import API from '../Api.js';
 import {NewModal} from './Modal.js';
 
 // corresponding style file
-import {UpLogin, AccountContainer, AccountCard} from '../styles/UpStyle.js';
+import {UpLogin, AccountContainer, AccountCard, TransactionsContainer} from '../styles/UpStyle.js';
 import FadeIn from 'react-fade-in';
 
+// infinite scroll
+import InfiniteScroll from 'react-infinite-scroll-component';
+import loading from '../assets/loading.svg';
 
 /**
  * Is the Login form. Will show modal error if not working properly
@@ -43,14 +45,12 @@ export function LoginForm(props) {
     e.preventDefault();
     const response = await new API().pingToken();
     if (response.status !== 200) {
-        console.log(response.data.errors[0].detail)
         setTitle("Error " + response.data.errors[0].status);
         setContent(response.data.errors[0].title);
         setShow(true);
     } else {
       // set token ONLY if successful
       sessionStorage.setItem('token', document.getElementById('formBasicPassword').value);
-      console.log(JSON.stringify(response.data));
       setRedirect(true);
     }
   }
@@ -183,6 +183,84 @@ const Account = (props) => {
   }
 }
 
+export function RecentData() {
+  const [tList, updateTList] = useState([]);
+  const [tObject, setTObject] = useState([]);
+  const [page, updatePage] = useState(0);
+  const [more, hasMore] = useState(true);
+
+
+  // gets further pages of results based on initial getFirstTransactions
+  const getMoreTransactions = async() => {
+    // getting first page
+    if (page === 0) {
+      const response = await new API().getTransactions();
+      if (response.status === 200) {
+        // first page
+        setTObject(response.data);
+        // adding first list of objects
+        updateTList(tList.concat(response.data.data));
+        // adding page count
+        updatePage(page + 1);
+      } else {
+        console.error('help');
+      }
+    // getting next page
+    } else if (tObject.links.next !== null) {
+      // get next page object
+      console.log('getting link' + tObject.links.next)
+      const response = await new API().getTransactionPage(tObject.links.next);
+      console.log(response.status, response.data);
+      setTObject(response.data);
+      // adding next page to list
+      updateTList(tList.concat(response.data.data));
+      // increasing page number
+      updatePage(page + 1);
+    // no more pages
+    } else {
+      hasMore(false)
+    }
+  }
+
+  useEffect(() => {
+    getMoreTransactions();
+  }, [])
+
+  
+  return (
+    <FadeIn>
+      <h3 style={{paddingBottom: '2.5%'}}>Latest Transactions</h3>
+      <TransactionsContainer
+        id="scrollableDiv"
+        style={{
+          overflow: 'auto',
+          display: 'flex',
+          flexDirection: 'column-reverse',
+        }}
+        className='w-full bg-white text-gray-900 rounded overflow-hidden'
+      > 
+        <InfiniteScroll
+          dataLength={tList.length} //This is important field to render the next data
+          next={getMoreTransactions}
+          hasMore={more}
+          loader={<h4 style={{textAlign: 'center', paddingTop: '5%'}}><img src={loading} height="75" width="75"/></h4>}
+          endMessage={
+            <p style={{ textAlign: 'center' }}>
+              <b>No more transactions to show</b>
+            </p>
+          }
+        >
+          {tList.map((t, index) => (
+          <div style={{color: 'black', background: 'white', borderBottom:'3px solid #e2e8f0', minHeight:'50px', padding:'10px'}} key={index}>
+            {t.attributes.description} <span className="text-muted small">{t.attributes.settledAt}</span><br /> <span style={{color:(parseInt(t.attributes.amount.value)) >= 0 ? 'green' : 'red'}}>{t.attributes.amount.value}</span>
+          </div>
+    ))}
+        </InfiniteScroll>
+      </TransactionsContainer>
+    </FadeIn>
+  );
+}
+
 /**
  * Handles most of the initial account data functions
  * Shows a list of account cards with results
@@ -208,7 +286,6 @@ export function AccountData() {
       const accounts = response.data.data;
       updateList(accounts);
     } else {
-      console.log(response);
       setAccounts([{'status': response.status,
                     'title': response.data.errors[0].title,
                     'detail': response.data.errors[0].detail}
@@ -224,7 +301,6 @@ export function AccountData() {
         const accounts = response.data.data;
         updateList(accounts);
       } else {
-        console.log(response);
         setAccounts([{'status': response.status,
                       'title': response.data.errors[0].title,
                       'detail': response.data.errors[0].detail}
@@ -240,10 +316,9 @@ export function AccountData() {
       <FadeIn><Button onClick={getAccounts}>Refresh Accounts</Button></FadeIn>
       <AccountContainer >
           {accountList.map((account, index) => {
-            return <FadeIn transitionDuration="800"><Account key={index} data={account} /></FadeIn>
+            return <FadeIn key={index} transitionDuration="800"><Account data={account} /></FadeIn>
           })}
       </AccountContainer>
-      
     </>
   );
 }

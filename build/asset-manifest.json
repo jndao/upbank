@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/upbank/static/css/main.8c51994d.chunk.css",
-    "main.js": "/upbank/static/js/main.b17124b5.chunk.js",
-    "main.js.map": "/upbank/static/js/main.b17124b5.chunk.js.map",
+    "main.js": "/upbank/static/js/main.904db937.chunk.js",
+    "main.js.map": "/upbank/static/js/main.904db937.chunk.js.map",
     "runtime-main.js": "/upbank/static/js/runtime-main.711ed9a2.js",
     "runtime-main.js.map": "/upbank/static/js/runtime-main.711ed9a2.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/upbank/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.cb07a460.chunk.js": "/upbank/static/js/2.cb07a460.chunk.js",
-    "static/js/2.cb07a460.chunk.js.map": "/upbank/static/js/2.cb07a460.chunk.js.map",
+    "static/js/2.9bcda22d.chunk.js": "/upbank/static/js/2.9bcda22d.chunk.js",
+    "static/js/2.9bcda22d.chunk.js.map": "/upbank/static/js/2.9bcda22d.chunk.js.map",
     "static/js/3.fd538dd1.chunk.js": "/upbank/static/js/3.fd538dd1.chunk.js",
     "static/js/3.fd538dd1.chunk.js.map": "/upbank/static/js/3.fd538dd1.chunk.js.map",
     "index.html": "/upbank/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/upbank/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.8c51994d.chunk.css.map": "/upbank/static/css/main.8c51994d.chunk.css.map",
-    "static/js/2.cb07a460.chunk.js.LICENSE.txt": "/upbank/static/js/2.cb07a460.chunk.js.LICENSE.txt",
+    "static/js/2.9bcda22d.chunk.js.LICENSE.txt": "/upbank/static/js/2.9bcda22d.chunk.js.LICENSE.txt",
     "static/media/fear.9cfc01b7.svg": "/upbank/static/media/fear.9cfc01b7.svg",
     "static/media/love.dedb77d3.gif": "/upbank/static/media/love.dedb77d3.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.711ed9a2.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.cb07a460.chunk.js",
+    "static/js/2.9bcda22d.chunk.js",
     "static/css/main.8c51994d.chunk.css",
-    "static/js/main.b17124b5.chunk.js"
+    "static/js/main.904db937.chunk.js"
   ]
 }

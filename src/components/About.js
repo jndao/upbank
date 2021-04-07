@@ -54,7 +54,7 @@ export function AboutContent() {
                 <h5>About the functionality of the app and it's terms of use. By using this app, you understand and agree that: </h5> <br />
                 <ul>
                     <li>This app is a PERSONAL PROJECT and is not intended for commercial use. USE IT AT YOUR OWN RISK.</li>
-                    <li>This app stores your token locally (to your personal machine), with it being deleted as you leave the tab. It retrives all data using a READ ONLY API.</li>
+                    <li>This app stores your token locally (to your personal device), with it being deleted as you leave the tab. It retrives all data using a READ ONLY API.</li>
                     <li>ALL of your financial data is limited to being stored in react state.</li>
                     <li>You accept that this is experimental and a proof of concept (demo) and is intended to be used as such, meaning that it does not take any responsibility for any damages that may occur as a result of misuse.</li>
                     <li>I DO NOT store or collect any of your financial information. If you feel as though your token has been compromised, you can regenerate a new one <a href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">here.</a></li>
