@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/upbank/static/css/main.8c51994d.chunk.css",
-    "main.js": "/upbank/static/js/main.904db937.chunk.js",
-    "main.js.map": "/upbank/static/js/main.904db937.chunk.js.map",
-    "runtime-main.js": "/upbank/static/js/runtime-main.711ed9a2.js",
-    "runtime-main.js.map": "/upbank/static/js/runtime-main.711ed9a2.js.map",
+    "main.css": "/upbank/static/css/main.1ef15c16.chunk.css",
+    "main.js": "/upbank/static/js/main.54096507.chunk.js",
+    "main.js.map": "/upbank/static/js/main.54096507.chunk.js.map",
+    "runtime-main.js": "/upbank/static/js/runtime-main.42f1e1bd.js",
+    "runtime-main.js.map": "/upbank/static/js/runtime-main.42f1e1bd.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/upbank/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.9bcda22d.chunk.js": "/upbank/static/js/2.9bcda22d.chunk.js",
-    "static/js/2.9bcda22d.chunk.js.map": "/upbank/static/js/2.9bcda22d.chunk.js.map",
-    "static/js/3.fd538dd1.chunk.js": "/upbank/static/js/3.fd538dd1.chunk.js",
-    "static/js/3.fd538dd1.chunk.js.map": "/upbank/static/js/3.fd538dd1.chunk.js.map",
+    "static/js/2.cfc23ba4.chunk.js": "/upbank/static/js/2.cfc23ba4.chunk.js",
+    "static/js/2.cfc23ba4.chunk.js.map": "/upbank/static/js/2.cfc23ba4.chunk.js.map",
+    "static/js/3.bef54250.chunk.js": "/upbank/static/js/3.bef54250.chunk.js",
+    "static/js/3.bef54250.chunk.js.map": "/upbank/static/js/3.bef54250.chunk.js.map",
     "index.html": "/upbank/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/upbank/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.8c51994d.chunk.css.map": "/upbank/static/css/main.8c51994d.chunk.css.map",
-    "static/js/2.9bcda22d.chunk.js.LICENSE.txt": "/upbank/static/js/2.9bcda22d.chunk.js.LICENSE.txt",
+    "static/css/main.1ef15c16.chunk.css.map": "/upbank/static/css/main.1ef15c16.chunk.css.map",
+    "static/js/2.cfc23ba4.chunk.js.LICENSE.txt": "/upbank/static/js/2.cfc23ba4.chunk.js.LICENSE.txt",
     "static/media/fear.9cfc01b7.svg": "/upbank/static/media/fear.9cfc01b7.svg",
+    "static/media/loading.737bbfe6.svg": "/upbank/static/media/loading.737bbfe6.svg",
     "static/media/love.dedb77d3.gif": "/upbank/static/media/love.dedb77d3.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.711ed9a2.js",
+    "static/js/runtime-main.42f1e1bd.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.9bcda22d.chunk.js",
-    "static/css/main.8c51994d.chunk.css",
-    "static/js/main.904db937.chunk.js"
+    "static/js/2.cfc23ba4.chunk.js",
+    "static/css/main.1ef15c16.chunk.css",
+    "static/js/main.54096507.chunk.js"
   ]
 }

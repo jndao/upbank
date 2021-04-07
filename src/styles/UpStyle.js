@@ -65,7 +65,7 @@ export const AboutDiv = styled.div `
 export const TransactionsContainer = styled.div `
     text-align: left;
     padding: 1%;
-    padding-bottom: 15%;
+    padding-bottom: 1
     &:hover {
         cursor: cursor;
     }

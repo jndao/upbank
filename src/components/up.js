@@ -96,6 +96,88 @@ export function LoginForm(props) {
 }
 
 /**
+ * Will fetch and infinitely paginate (until none left) all
+ * recent transactions!
+ * @returns JSX Element
+ */
+export function RecentData() {
+  const [tList, updateTList] = useState([]);
+  const [tObject, setTObject] = useState([]);
+  const [page, updatePage] = useState(0);
+  const [more, hasMore] = useState(true);
+
+
+  // gets further pages of results based on initial getFirstTransactions
+  const getMoreTransactions = async() => {
+    // getting first page
+    if (page === 0) {
+      const response = await new API().getTransactions();
+      if (response.status === 200) {
+        // first page
+        setTObject(response.data);
+        // adding first list of objects
+        updateTList(tList.concat(response.data.data));
+        // adding page count
+        updatePage(page + 1);
+      } else {
+        console.error('help');
+      }
+    // getting next page
+    } else if (tObject.links.next !== null) {
+      // get next page object
+      const response = await new API().getTransactionPage(tObject.links.next);
+      setTObject(response.data);
+      // adding next page to list
+      updateTList(tList.concat(response.data.data));
+      // increasing page number
+      updatePage(page + 1);
+    // no more pages
+    } else {
+      hasMore(false)
+    }
+  }
+
+  useEffect(() => {
+    getMoreTransactions();
+  }, [])
+
+  
+  return (
+    <FadeIn>
+      <h3 style={{paddingBottom: '2.5%'}}>Latest Transactions</h3>
+      <TransactionsContainer
+        id="scrollableDiv"
+        style={{
+          overflow: 'auto',
+          display: 'flex',
+          flexDirection: 'column-reverse',
+        }}
+        className='w-full bg-white text-gray-900 rounded overflow-hidden'
+      > 
+        <InfiniteScroll
+          dataLength={tList.length} //This is important field to render the next data
+          next={getMoreTransactions}
+          hasMore={more}
+          loader={<h4 style={{textAlign: 'center', paddingTop: '5%'}}><img src={loading} height="75" width="75"/></h4>}
+          endMessage={
+            <p style={{ textAlign: 'center' }}>
+              <b>No more transactions to show</b>
+            </p>
+          }
+        >
+          {tList.map((t, index) => (
+          <div style={{color: 'black', background: 'white', borderBottom:'3px solid #e2e8f0', minHeight:'50px', padding:'10px'}} key={index}>
+            {t.attributes.description} <span className="text-muted small">{t.attributes.settledAt}</span><br /> <span style={{color:(parseInt(t.attributes.amount.value)) >= 0 ? 'green' : 'red'}}>{t.attributes.amount.value}</span>
+          </div>
+    ))}
+        </InfiniteScroll>
+      </TransactionsContainer>
+    </FadeIn>
+  );
+}
+
+
+/**
  * Given an array of transaction objects, will return an 
  * ordered list of transactions
  * used to get recent transactions 
@@ -165,7 +247,7 @@ const Account = (props) => {
     }
     // returning an account card
     return (
-      <AccountCard >
+      <AccountCard>
         <div>{show &&<NewModal show={show} title={title} content={content} />}</div>
         <Card className="hvr-underline-from-left" onClick={handleShowTransaction}>
           <Card.Header>Account Type: {accountType}</Card.Header>
@@ -181,84 +263,6 @@ const Account = (props) => {
       </AccountCard>
     );
   }
-}
-
-export function RecentData() {
-  const [tList, updateTList] = useState([]);
-  const [tObject, setTObject] = useState([]);
-  const [page, updatePage] = useState(0);
-  const [more, hasMore] = useState(true);
-
-
-  // gets further pages of results based on initial getFirstTransactions
-  const getMoreTransactions = async() => {
-    // getting first page
-    if (page === 0) {
-      const response = await new API().getTransactions();
-      if (response.status === 200) {
-        // first page
-        setTObject(response.data);
-        // adding first list of objects
-        updateTList(tList.concat(response.data.data));
-        // adding page count
-        updatePage(page + 1);
-      } else {
-        console.error('help');
-      }
-    // getting next page
-    } else if (tObject.links.next !== null) {
-      // get next page object
-      console.log('getting link' + tObject.links.next)
-      const response = await new API().getTransactionPage(tObject.links.next);
-      console.log(response.status, response.data);
-      setTObject(response.data);
-      // adding next page to list
-      updateTList(tList.concat(response.data.data));
-      // increasing page number
-      updatePage(page + 1);
-    // no more pages
-    } else {
-      hasMore(false)
-    }
-  }
-
-  useEffect(() => {
-    getMoreTransactions();
-  }, [])
-
-  
-  return (
-    <FadeIn>
-      <h3 style={{paddingBottom: '2.5%'}}>Latest Transactions</h3>
-      <TransactionsContainer
-        id="scrollableDiv"
-        style={{
-          overflow: 'auto',
-          display: 'flex',
-          flexDirection: 'column-reverse',
-        }}
-        className='w-full bg-white text-gray-900 rounded overflow-hidden'
-      > 
-        <InfiniteScroll
-          dataLength={tList.length} //This is important field to render the next data
-          next={getMoreTransactions}
-          hasMore={more}
-          loader={<h4 style={{textAlign: 'center', paddingTop: '5%'}}><img src={loading} height="75" width="75"/></h4>}
-          endMessage={
-            <p style={{ textAlign: 'center' }}>
-              <b>No more transactions to show</b>
-            </p>
-          }
-        >
-          {tList.map((t, index) => (
-          <div style={{color: 'black', background: 'white', borderBottom:'3px solid #e2e8f0', minHeight:'50px', padding:'10px'}} key={index}>
-            {t.attributes.description} <span className="text-muted small">{t.attributes.settledAt}</span><br /> <span style={{color:(parseInt(t.attributes.amount.value)) >= 0 ? 'green' : 'red'}}>{t.attributes.amount.value}</span>
-          </div>
-    ))}
-        </InfiniteScroll>
-      </TransactionsContainer>
-    </FadeIn>
-  );
 }
 
 /**
