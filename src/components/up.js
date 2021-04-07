@@ -120,23 +120,29 @@ export function RecentData() {
         // adding page count
         updatePage(page + 1);
       } else {
+        hasMore(false);
         console.error('help');
       }
     // getting next page
     } else if (tObject.links.next !== null) {
       // get next page object
       const response = await new API().getTransactionPage(tObject.links.next);
-      setTObject(response.data);
-      // adding next page to list
-      updateTList(tList.concat(response.data.data));
-      // increasing page number
-      updatePage(page + 1);
+      if (response.status === 200) {
+        setTObject(response.data);
+        // adding next page to list
+        updateTList(tList.concat(response.data.data));
+        // increasing page number
+        updatePage(page + 1);
+      } else {
+        hasMore(false);
+      }
     // no more pages
     } else {
-      hasMore(false)
+      hasMore(false);
     }
   }
 
+  // initial get of transactions
   useEffect(() => {
     getMoreTransactions();
   }, [])

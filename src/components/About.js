@@ -43,7 +43,7 @@ export function AboutContent() {
 }
 
 /**
- * All the content required to show an about page!
+ * All the content required to show an terms page!
  * @returns JSX element
  */
  export function AboutTerms() {
