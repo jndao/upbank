@@ -255,7 +255,7 @@ const Account = (props) => {
     return (
       <AccountCard>
         <div>{show &&<NewModal show={show} title={title} content={content} />}</div>
-        <Card className="hvr-underline-from-left" onClick={handleShowTransaction}>
+        <Card className="hvr-underline-from-left" style={{minWidth: '200px', margin: '0 auto'}} onClick={handleShowTransaction}>
           <Card.Header>Account Type: {accountType}</Card.Header>
           <Card.Body>
             <Card.Title>{displayName}</Card.Title>
