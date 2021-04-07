@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/upbank/static/css/main.1ef15c16.chunk.css",
+    "main.css": "/upbank/static/css/main.567393f5.chunk.css",
     "main.js": "/upbank/static/js/main.3adb6d6c.chunk.js",
     "main.js.map": "/upbank/static/js/main.3adb6d6c.chunk.js.map",
     "runtime-main.js": "/upbank/static/js/runtime-main.42f1e1bd.js",
@@ -12,7 +12,7 @@
     "static/js/3.bef54250.chunk.js.map": "/upbank/static/js/3.bef54250.chunk.js.map",
     "index.html": "/upbank/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/upbank/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.1ef15c16.chunk.css.map": "/upbank/static/css/main.1ef15c16.chunk.css.map",
+    "static/css/main.567393f5.chunk.css.map": "/upbank/static/css/main.567393f5.chunk.css.map",
     "static/js/2.cfc23ba4.chunk.js.LICENSE.txt": "/upbank/static/js/2.cfc23ba4.chunk.js.LICENSE.txt",
     "static/media/fear.9cfc01b7.svg": "/upbank/static/media/fear.9cfc01b7.svg",
     "static/media/loading.737bbfe6.svg": "/upbank/static/media/loading.737bbfe6.svg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.42f1e1bd.js",
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.cfc23ba4.chunk.js",
-    "static/css/main.1ef15c16.chunk.css",
+    "static/css/main.567393f5.chunk.css",
     "static/js/main.3adb6d6c.chunk.js"
   ]
 }
