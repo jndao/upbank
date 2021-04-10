@@ -57,9 +57,7 @@ export const AboutDiv = styled.div `
     line-height: 200%;
     font-size: large;
     padding-bottom: 15%;
-    &:hover {
-        cursor: cursor;
-    }
+    max-height: 1000px;
 `;
 
 export const TransactionsContainer = styled.div `
