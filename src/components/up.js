@@ -8,7 +8,7 @@ import { Button, Form, Card, ListGroup } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // API import
-import API from '../Api.js';
+import API from '../api/Api.js';
 
 // modal import
 import {NewModal} from './Modal.js';
