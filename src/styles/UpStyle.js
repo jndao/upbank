@@ -66,4 +66,24 @@ export const TransactionsContainer = styled.div `
     &:hover {
         cursor: cursor;
     }
-`
+`;
+
+export const TransactionCellDiv = styled.div `
+    color: black;
+    background: white;
+    border-bottom: 3px solid #e2e8f0;
+    min-height: 50px;
+    padding: 10px;
+`;
+
+// text is green if added, red if removed
+export const TransactionAmount = styled.span `
+    color: ${props => props.color ? 'green' : 'red'};
+    float: right;
+`;
+
+// text is green if added, red if removed
+export const TransactionSettled = styled.span `
+    color: ${props => props.color ? 'green' : 'red'};
+    float: right;
+`;

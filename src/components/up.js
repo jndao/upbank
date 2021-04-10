@@ -14,7 +14,7 @@ import API from '../Api.js';
 import {NewModal} from './Modal.js';
 
 // corresponding style file
-import {UpLogin, AccountContainer, AccountCard, TransactionsContainer} from '../styles/UpStyle.js';
+import { UpLogin, AccountContainer, AccountCard, TransactionsContainer, TransactionCellDiv, TransactionAmount } from '../styles/UpStyle.js';
 import FadeIn from 'react-fade-in';
 
 // infinite scroll
@@ -172,9 +172,10 @@ export function RecentData() {
           }
         >
           {tList.map((t, index) => (
-          <div style={{color: 'black', background: 'white', borderBottom:'3px solid #e2e8f0', minHeight:'50px', padding:'10px'}} key={index}>
-            {t.attributes.description} <span className="text-muted small">{t.attributes.settledAt}</span><br /> <span style={{color:(parseInt(t.attributes.amount.value)) >= 0 ? 'green' : 'red'}}>{t.attributes.amount.value}</span>
-          </div>
+          <TransactionCellDiv key={index}>
+            <span>{t.attributes.description} <br /><span className="text-muted small">{t.attributes.settledAt ? t.attributes.settledAt : 'Pending'}</span></span> 
+            <TransactionAmount color={parseInt(t.attributes.amount.value) >= 0}>${t.attributes.amount.value}</TransactionAmount>
+          </TransactionCellDiv>
     ))}
         </InfiniteScroll>
       </TransactionsContainer>
@@ -194,7 +195,7 @@ const transactionList = (list) => {
     <ListGroup>
       {list.map((t, index) => {
         return <ListGroup.Item key={index}>
-            {index + 1}. {t.attributes.description}<text style={{float: 'right'}}>Value: {t.attributes.amount.currencyCode}$ <span style={{color:(parseInt(t.attributes.amount.value)) >= 0 ? 'green' : 'red'}}>{t.attributes.amount.value}</span></text><br />
+            {index + 1}. {t.attributes.description}<span style={{float: 'right'}}>Value: {t.attributes.amount.currencyCode}$ <TransactionAmount color={parseInt(t.attributes.amount.value) >= 0}>{t.attributes.amount.value}</TransactionAmount></span><br />
           </ListGroup.Item>
       })}
     </ListGroup>
