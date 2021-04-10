@@ -10,6 +10,7 @@ export const UpTheme = styled.div `
     background-color: #25232F;
     color: #FF7A64;
     text-align: center;
+    padding-bottom: 150px;
 `;
 
 // main login div
@@ -56,8 +57,6 @@ export const AboutDiv = styled.div `
     letter-spacing: 1.5px;
     line-height: 200%;
     font-size: large;
-    padding-bottom: 15%;
-    max-height: 1000px;
 `;
 
 export const TransactionsContainer = styled.div `

@@ -54,9 +54,9 @@ function About() {
       <UpTheme>
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
-          </Navbar>
-          <FadeIn><AboutContent /></FadeIn>
-        </UpTheme>
+        </Navbar>
+        <FadeIn><AboutContent /></FadeIn>
+      </UpTheme>
       <NavFooter/>
     </>
     
@@ -156,9 +156,8 @@ function NotFound() {
 // footer for every single page
 function NavFooter() {
   return (
-    <Navbar bg="dark" variant="dark" fixed="bottom">
+    <Navbar bg="dark" variant="dark" fixed="bottom" style={{marginTop: '-150px'}}>
       <NavbarCollapse className='justify-content-end'>
-        <Button className='btn' variant='link'href='https://github.com/jnddao/upbank'>Github</Button>
         <Button className='btn' variant='link'href='mailto:work@johndao.dev?subject=I%20found%20a%20bug%20in%20your%20Up%20Bank%20App.'>Found a bug?</Button>
         <Button className='btn' variant='link'><Link to='/terms'>Terms of use</Link></Button>
         <Button className='btn' variant='link'href='https://johndao.dev'>About me</Button>
@@ -179,7 +178,7 @@ function InfoNav() {
     <>
       <Header/>
       <NavbarCollapse className='justify-content-end'>
-        <HomeNav/> <AboutNav/>
+        <HomeNav/> <AboutNav/> <LoginNav/>
       </NavbarCollapse>
     </>
   );
@@ -237,6 +236,21 @@ function LogOut() {
       <Button className='mr-2 btn btn-secondary' onClick={handleLogOut}>Log Out</Button>
     </>
   );
+}
+
+// Button to go login page
+// will show as logout button if user is already logged in
+function LoginNav() {
+  if (sessionStorage.getItem('token') === null) {
+    return (
+      <Link className='mr-2 btn btn-primary' to='/login'>Login</Link>
+    );
+  } else {
+    return (
+      <LogOut/>
+    );
+  }
+
 }
 
 // button to go to About

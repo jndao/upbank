@@ -164,7 +164,7 @@ export function RecentData() {
           dataLength={tList.length} //This is important field to render the next data
           next={getMoreTransactions}
           hasMore={more}
-          loader={<h4 style={{textAlign: 'center', paddingTop: '5%'}}><img src={loading} height="75" width="75"/></h4>}
+          loader={<h4 style={{textAlign: 'center', paddingTop: '5%'}}><img alt="Loading..." src={loading} height="75" width="75"/></h4>}
           endMessage={
             <p style={{ textAlign: 'center' }}>
               <b>No more transactions to show</b>
