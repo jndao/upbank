@@ -81,9 +81,3 @@ export const TransactionAmount = styled.span `
     color: ${props => props.color ? 'green' : 'red'};
     float: right;
 `;
-
-// text is green if added, red if removed
-export const TransactionSettled = styled.span `
-    color: ${props => props.color ? 'green' : 'red'};
-    float: right;
-`;
