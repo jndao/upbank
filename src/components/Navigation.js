@@ -1,7 +1,7 @@
 // react imports
 import {
     //BrowserRouter as Router, // commented out as it doesn't work on github pages
-    HashRouter as Router,
+    BrowserRouter as Router,
     Switch,
     Route,
     Link,
