@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import API from '../api/Api.js';
 
 // modal import
-import {NewModal} from './Modal.js';
+import {NewModal} from './components/Modal.js';
 
 // corresponding style file
 import { UpLogin, AccountContainer, AccountCard, TransactionsContainer, TransactionCellDiv, TransactionAmount } from '../styles/UpStyle.js';
