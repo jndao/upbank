@@ -145,9 +145,10 @@ export function RecentData() {
   // initial get of transactions
   useEffect(() => {
     getMoreTransactions();
+    // eslint disable because the function is defined before this useEffect even is called
+    // eslint-disable-next-line
   }, [])
 
-  
   return (
     <FadeIn>
       <h3 style={{paddingBottom: '2.5%'}}>Latest Transactions</h3>
