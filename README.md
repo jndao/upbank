@@ -1,4 +1,4 @@
-# Up Bank App
+# Up Bank App ⚡
 ![alt text](https://github.com/jnddao/upbank/blob/main/readme.jpg "Up bank app login page")  
 This project is a **work in progress** and is hosted [here](http://upbank.johndao.dev).  
   
