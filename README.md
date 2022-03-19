@@ -1,6 +1,6 @@
-# Up Bank App
+# Up Bank App ⚡
 ![alt text](https://github.com/jnddao/upbank/blob/main/readme.jpg "Up bank app login page")  
-This project is a **work in progress** and is planned to be hosted at my website [here](http://johndao.dev/upbank).  
+This project is a **work in progress** and is hosted [here](http://upbank.johndao.dev).  
   
 Originally started mid last year after the release of my favourite bank's new feature, their [api](https://developer.up.com.au/). After developing my front-end skills I've decided to transform the app from the initial version of it being a python command line app, to a react app integrated into my website.  
 
