@@ -156,12 +156,12 @@ function NotFound() {
 // footer for every single page
 function NavFooter() {
   return (
-    <Navbar bg="dark" variant="dark" fixed="bottom" style={{marginTop: '-150px'}}>
+    <Navbar bg="dark" variant="dark" fixed="bottom">
       <NavbarCollapse className='justify-content-end'>
-      <Button className='btn' variant='link'href='https://github.com/jnddao/upbank'>Github</Button>
-      <Button className='btn' variant='link'href='mailto:work@johndao.dev?subject=I%20found%20a%20bug%20in%20your%20Up%20Bank%20App.'>Found a bug?</Button>
-      <Button className='btn' variant='link'><Link to='/terms'>Terms of use</Link></Button>
-        <Button className='btn' variant='link'href='https://johndao.dev'>About me</Button>
+        <Button className='btn' variant='link'href='https://github.com/jnddao/upbank'>Github</Button>
+        <Button className='btn' variant='link'href='https://johndao.com/contact?message=Hi+there%2C%0D%0AI+found+a+bug+in+your+UpBank+app+%3A%28%0D%0A'>Found a bug?</Button>
+        <Button className='btn' variant='link'><Link to='/terms'>Terms of use</Link></Button>
+        <Button className='btn' variant='link'href='https://johndao.com'>About me</Button>
       </NavbarCollapse>
     </Navbar>
   );

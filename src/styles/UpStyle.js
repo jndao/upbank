@@ -10,7 +10,6 @@ export const UpTheme = styled.div `
     background-color: #25232F;
     color: #FF7A64;
     text-align: center;
-    padding-bottom: 150px;
 `;
 
 // main login div
@@ -25,7 +24,7 @@ export const UpLogin = styled.div `
 export const AccountContainer = styled.div `
     display: flex;
     margin: auto;
-    flex-direction: column;mj
+    flex-direction: column;
     justify-content: center;
     align-items: space-between;
     flex-wrap: wrap;
@@ -62,7 +61,7 @@ export const AboutDiv = styled.div `
 export const TransactionsContainer = styled.div `
     text-align: left;
     padding: 1%;
-    padding-bottom: 1
+    padding-bottom: 1;
     &:hover {
         cursor: cursor;
     }
