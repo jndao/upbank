@@ -78,7 +78,7 @@ export function LoginForm(props) {
             <Form.Label>Up Api Token</Form.Label>
             <Form.Control type="password" placeholder="Paste token here"/>
             <Form.Text className="text-muted">
-              By using this experimental app, you understand and agree to the <a href="https://johndao.dev/upbank/#/terms" rel="noreferrer" target="_blank">terms of use.</a><br />
+              By using this experimental app, you understand and agree to the <a href="https://upbank.johndao.com/terms" rel="noreferrer">terms of use.</a><br />
               All sensitive data is stored to your local device and erased when you close your tab. If you feel if your token has been compromised, regenerate a new one <a href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">here.</a>
             </Form.Text>
           </Form.Group>
