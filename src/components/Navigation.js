@@ -18,7 +18,7 @@ import {LoginForm, AccountData, RecentData} from './Up.js';
 import {AboutContent, AboutTerms} from './About.js';
 
 // The general theme of the app
-import {UpTheme} from '../styles/UpStyle.js';
+import {UpTheme, MainContent} from '../styles/UpStyle.js';
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 // images
@@ -55,9 +55,9 @@ function About() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
         </Navbar>
-        <FadeIn><AboutContent /></FadeIn>
+        <MainContent><FadeIn><AboutContent /></FadeIn></MainContent>
+        <NavFooter/>
       </UpTheme>
-      <NavFooter/>
     </>
     
   );
@@ -71,9 +71,9 @@ function Terms() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
           </Navbar>
-          <FadeIn><AboutTerms /></FadeIn>
-        </UpTheme>
-      <NavFooter/>
+          <MainContent><FadeIn><AboutTerms /></FadeIn></MainContent>
+        <NavFooter/>
+      </UpTheme>
     </>
     
   );
@@ -86,25 +86,26 @@ function Accounts() {
         <Navbar bg="dark" variant="dark">
           <UserNav/>
         </Navbar>
-        <FadeIn>
-          <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
-          <h5 style={{paddingBottom: "3%"}}> You're Logged In!</h5>
-        </FadeIn>
-        <Container>
-          <Row>
-            <Col>
-              <div style={{padding: "1%"}}>
-                <AccountData/>
-              </div>
-            </Col>
-            <Col>
-              <RecentData />
-            </Col>
-          </Row>
-        </Container>
-        
+        <MainContent>
+          <FadeIn>
+            <h1 style={{paddingTop: "3%"}}>Welcome!</h1>
+            <h5 style={{paddingBottom: "3%"}}> You're Logged In!</h5>
+          </FadeIn>
+          <Container>
+            <Row>
+              <Col>
+                <div style={{padding: "1%"}}>
+                  <AccountData/>
+                </div>
+              </Col>
+              <Col>
+                <RecentData />
+              </Col>
+            </Row>
+          </Container>
+        </MainContent>
+        <NavFooter/>
       </UpTheme>
-      <NavFooter/>
     </>
   );
 }
@@ -117,9 +118,11 @@ function Login() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
         </Navbar>
-        <FadeIn><LoginForm logged={sessionStorage.getItem('token') !== undefined && true}/></FadeIn>
+        <MainContent>
+          <FadeIn><LoginForm logged={sessionStorage.getItem('token') !== undefined && true}/></FadeIn>
+        </MainContent>
+        <NavFooter/>
       </UpTheme>
-      <NavFooter/>
     </>
   );
 }
@@ -132,23 +135,24 @@ function NotFound() {
         <Navbar bg="dark" variant="dark">
           <InfoNav/>
         </Navbar>
-        <FadeIn >
-          <div style={{paddingTop: '5%', paddingBottom: '2%'}}>
-            <h1>Uh Oh!</h1>
-            <h3 >Page doesn't exist.</h3>
-            <img
-              src={fearImage}
-              width="100"
-              height="100"
-              className="d-inline-block align-top"
-              alt="Oh No Emoji"
-          />
-          </div>
-          <HomeNav/>
-          
-        </FadeIn>
+        <MainContent>
+          <FadeIn >
+            <div style={{paddingTop: '5%', paddingBottom: '2%'}}>
+              <h1>Uh Oh!</h1>
+              <h3 >Page doesn't exist.</h3>
+              <img
+                src={fearImage}
+                width="100"
+                height="100"
+                className="d-inline-block align-top"
+                alt="Oh No Emoji"
+            />
+            </div>
+            <HomeNav/>
+          </FadeIn>
+        </MainContent>
+        <NavFooter/>
       </UpTheme>
-      <NavFooter/>
     </>
   )
 }

@@ -5,11 +5,17 @@ import styled from 'styled-components';
 
 // main theming for the app
 export const UpTheme = styled.div `
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     width: 100%;
     background-color: #25232F;
     color: #FF7A64;
     text-align: center;
+`;
+
+export const MainContent = styled.div`
+  flex: 1 0 auto;
 `;
 
 // main login div
