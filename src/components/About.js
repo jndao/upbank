@@ -83,10 +83,7 @@ export function AboutTerms() {
             Source code is open-source; feel free to explore or fork the project on GitHub.
           </li>
         </ul>
-
-        <button onClick={onAccept}>I&nbsp;Agree&nbsp;—&nbsp;Continue</button>
       </AboutDiv>
-
     </>
   );
 }
