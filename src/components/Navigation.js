@@ -160,7 +160,7 @@ function NotFound() {
 // footer for every single page
 function NavFooter() {
   return (
-    <Navbar bg="dark" variant="dark" fixed="bottom">
+    <Navbar bg="dark" variant="dark">
       <NavbarCollapse className='justify-content-end'>
         <Button className='btn' variant='link'href='https://github.com/jnddao/upbank'>Github</Button>
         <Button className='btn' variant='link'href='https://johndao.com/contact?message=Hi+there%2C%0D%0AI+found+a+bug+in+your+UpBank+app+%3A%28%0D%0A'>Found a bug?</Button>
