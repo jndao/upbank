@@ -78,8 +78,8 @@ export function LoginForm(props) {
             <Form.Label>Up Api Token</Form.Label>
             <Form.Control type="password" placeholder="Paste token here"/>
             <Form.Text className="text-muted">
-              By using this experimental app, you understand and agree to the <a href="https://upbank.johndao.com/terms" rel="noreferrer">terms of use.</a><br />
-              All sensitive data is stored to your local device and erased when you close your tab. If you feel if your token has been compromised, regenerate a new one <a href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">here.</a>
+              By using this personal project, you understand and agree to the <a href="https://upbank.johndao.com/terms" rel="noreferrer">terms of use. This project is distributed under the MIT Licence.</a><br />
+              This project will be archived and decomissioned in the coming weeks as I haven't had the time to maintain this project. It may be restarted in the future as I continue to enjoy using Up Bank. The code should continue to be available.
             </Form.Text>
           </Form.Group>
           <Button className="btn btn-primary" type="submit" >

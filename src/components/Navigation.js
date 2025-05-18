@@ -202,7 +202,7 @@ function UserNav() {
 function Header() {
   return (
     <>
-        <Navbar.Brand href="/upbank">
+        <Navbar.Brand href="/">
           <img
             src={coolUpLogo}
             width="40"
@@ -210,6 +210,7 @@ function Header() {
             className="d-inline-block align-top"
             alt="Upbank Logo"
           />
+          <span>This project will be archived and decomissioned in the coming weeks as I haven't had the time to maintain this project. It may be restarted in the future as I continue to enjoy using Up Bank. The code should continue to be available. </span>
         </Navbar.Brand>
         
     </>

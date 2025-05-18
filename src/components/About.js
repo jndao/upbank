@@ -49,20 +49,44 @@ export function AboutContent() {
 export function AboutTerms() {
   return (
     <>
-      <h1 style={{paddingTop: '3%'}}>Terms of use</h1>
-      <AboutDiv style={{textAlign: 'left'}}>
-        <h5>About the functionality of the app and it's terms of use. By using this app, you understand and agree that: </h5> <br />
+      <h1 style={{paddingTop:'3%',paddingBottom:'3%'}}>Terms of Use</h1>
+
+      <AboutDiv style={{textAlign:'left'}}>
+        <p>
+          By using this app you acknowledge and agree to the terms below.
+          All account data stays in your browser only and is erased when you
+          close the tab. <strong>No data is ever sent to the author’s servers.</strong>
+        </p>
+
         <ul>
-            <li>This app is a PERSONAL PROJECT and is not intended for commercial use. USE IT AT YOUR OWN RISK.</li>
-            <li>This app stores your token locally (to your personal device), with it being deleted as you leave the tab. It retrives all data using a READ ONLY API.</li>
-            <li>ALL of your financial data is limited to being stored in react state.</li>
-            <li>You accept that this is experimental and a proof of concept (demo) and is intended to be used as such, meaning that it does not take any responsibility for any damages that may occur as a result of misuse.</li>
-            <li>I DO NOT store or collect any of your financial information. If you feel as though your token has been compromised, you can regenerate a new one <a href="https://api.up.com.au/getting_started" rel="noreferrer" target="_blank">here.</a></li>
-            <li>There is no warranty on this product.</li>
-            <li>It is distributed under the MIT Licence. You can see it <a href="https://github.com/jnddao/upbank/blob/main/LICENSE" rel="noreferrer" target="_blank">here.</a></li>
-            
+          <li>
+            Distributed under the <a href="https://github.com/jnddao/upbank/blob/main/LICENSE" target="_blank" rel="noreferrer">
+            MIT&nbsp;Licence</a>.
+          </li>
+          <li>
+            This app is a <strong>personal, experimental demo</strong>. Use it at your own risk.
+            It is provided “AS IS”, without warranty of any kind, except to the extent
+            that liability cannot be excluded under applicable law.
+          </li>
+          <li>
+            Up® and the Up logo are trademarks of Bendigo and Adelaide Bank Ltd.
+            All related names, marks and content remain their property. This project
+            is unaffiliated and for personal, non-commercial use only.
+          </li>
+          <li>
+            If you believe your Up API token has been compromised, revoke it and
+            generate a new one in the Up app
+            (<a href="https://api.up.com.au/getting_started" target="_blank" rel="noreferrer">
+            instructions</a>).
+          </li>
+          <li>
+            Source code is open-source; feel free to explore or fork the project on GitHub.
+          </li>
         </ul>
+
+        <button onClick={onAccept}>I&nbsp;Agree&nbsp;—&nbsp;Continue</button>
       </AboutDiv>
+
     </>
   );
 }
