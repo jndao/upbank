@@ -201,19 +201,35 @@ function UserNav() {
 // header for landing
 function Header() {
   return (
-    <>
-        <Navbar.Brand href="/">
-          <img
-            src={coolUpLogo}
-            width="40"
-            height="40"
-            className="d-inline-block align-top"
-            alt="Upbank Logo"
-          />
-          <span>This project will be archived and decomissioned in the coming weeks as I haven't had the time to maintain this project. It may be restarted in the future as I continue to enjoy using Up Bank. The code should continue to be available. </span>
-        </Navbar.Brand>
-        
-    </>
+    <Navbar className="navbar-light bg-light" style={{ paddingTop: '0.4rem', paddingBottom: '0.4rem' }}>
+      <Navbar.Brand href="/" /* override the nowrap */ style={{ whiteSpace: 'normal' }}>
+        {/* logo */}
+        <img
+          src={coolUpLogo}
+          width="40"
+          height="40"
+          style={{ display: 'inline-block', verticalAlign: 'middle' }}
+          alt="Upbank logo"
+        />
+
+        {/* banner text — inline-block so it wraps; margin for breathing room */}
+        <span
+          style={{
+            display: 'inline-block',
+            verticalAlign: 'middle',
+            marginLeft: 8,
+            lineHeight: 1.2,
+            fontSize: '0.85rem',
+            color: '#6c757d', // muted
+          }}
+        >
+          This project will be archived and de-commissioned in the coming weeks
+          as I haven’t had the time to maintain it. It may be restarted in the
+          future as I continue to enjoy using Up Bank. The code will remain
+          available.
+        </span>
+      </Navbar.Brand>
+    </Navbar>
   );
 }
 
