@@ -1,4 +1,8 @@
-# Up Bank App ⚡
+# Up Bank App ⚡[PENDING DECOMISSIONING/DEPRECATION]
+
+**Update**
+Unfortunately, I have not had the time to keep this personal project up to the standards that I find acceptable. I am looking to decommission this project and keep it on ice until further notice. It may live another day.
+
 ![alt text](https://github.com/jnddao/upbank/blob/main/readme.jpg "Up bank app login page")  
 This project is a **work in progress** and is hosted [here](http://upbank.johndao.dev).  
   
@@ -40,5 +44,7 @@ If you are forking this repository, there are only a few requirements:
   
 Refer to [how to use](#how-to-use) to get started. 
   
-## Licence  
+## Licence/Notice 
 This app is distributed under the MIT licence. More details [here](https://github.com/jnddao/upbank/blob/main/LICENSE).  
+
+Up® and the Up logo are trademarks of Bendigo and Adelaide Bank Ltd. All related names, marks and content remain their property. This project is unaffiliated and for personal, non-commercial use only.

@@ -79,7 +79,7 @@ export function LoginForm(props) {
             <Form.Control type="password" placeholder="Paste token here"/>
             <Form.Text className="text-muted">
               By using this personal project, you understand and agree to the <a href="https://upbank.johndao.com/terms" rel="noreferrer">terms of use. This project is distributed under the MIT Licence.</a><br />
-              This project will be archived and decomissioned in the coming weeks as I haven't had the time to maintain this project. It may be restarted in the future as I continue to enjoy using Up Bank. The code should continue to be available.
+              This project will be archived and decomissioned in the coming weeks. I haven't had the time to maintain this project to the standards that I find acceptable. It may be restarted in the future as I continue to enjoy using Up Bank. The code should continue to be available once decomissioned unless noted otherwise.
             </Form.Text>
           </Form.Group>
           <Button className="btn btn-primary" type="submit" >

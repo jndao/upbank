@@ -219,14 +219,14 @@ function Header() {
             verticalAlign: 'middle',
             marginLeft: 8,
             lineHeight: 1.2,
-            fontSize: '0.85rem',
+            fontSize: '0.75rem',
             color: '#6c757d', // muted
           }}
         >
-          This project will be archived and de-commissioned in the coming weeks
-          as I haven’t had the time to maintain it. It may be restarted in the
-          future as I continue to enjoy using Up Bank. The code will remain
-          available.
+          This project will be archived and decomissioned in the coming weeks. 
+          I haven't had the time to maintain this project to the standards that I find acceptable. 
+          It may be restarted in the future as I continue to enjoy using Up Bank. 
+          The code should continue to be available once decomissioned unless noted otherwise.
         </span>
       </Navbar.Brand>
     </Navbar>

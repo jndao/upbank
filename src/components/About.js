@@ -54,8 +54,7 @@ export function AboutTerms() {
       <AboutDiv style={{textAlign:'left'}}>
         <p>
           By using this app you acknowledge and agree to the terms below.
-          All account data stays in your browser only and is erased when you
-          close the tab. <strong>No data is ever sent to the author’s servers.</strong>
+          <strong>I do not actively or willingly collect any data on this personal project. You are welcome to explore the source code located on GitHub <a href="https://github.com/jnddao/upbank" target="_blank" rel="noreferrer">here</a>.</strong>
         </p>
 
         <ul>
@@ -78,9 +77,6 @@ export function AboutTerms() {
             generate a new one in the Up app
             (<a href="https://api.up.com.au/getting_started" target="_blank" rel="noreferrer">
             instructions</a>).
-          </li>
-          <li>
-            Source code is open-source; feel free to explore or fork the project on GitHub.
           </li>
         </ul>
       </AboutDiv>
